@@ -10,6 +10,9 @@
 .idea/
 .idea
 
+.yardoc
+.yardoc/
+
 *.swp
 *.swo
 .swp
