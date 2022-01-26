@@ -1,6 +1,7 @@
 require 'http'
 require 'logger'
 require 'awesome_print'
+require 'dotenv/load'
 
 ##
 # Wrap up request handling and common functions for TCGPlayer price API
