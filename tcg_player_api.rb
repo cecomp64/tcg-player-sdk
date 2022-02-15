@@ -1,6 +1,6 @@
 require 'http'
 require 'logger'
-require 'awesome_print'
+require 'amazing_print'
 require 'dotenv/load'
 
 ##

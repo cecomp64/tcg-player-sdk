@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'awesome_print'
+gem 'amazing_print'
 gem 'http'
 gem 'pry'
 gem 'yard'
