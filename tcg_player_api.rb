@@ -19,6 +19,10 @@ class TCGPlayerAPI
     def expired?
 
     end
+
+    def to_s
+      ap self, indent: -2
+    end
   end
 
   class ResponseStruct < OpenStruct
@@ -38,11 +42,43 @@ class TCGPlayerAPI
     end
 
     ##
-    # Iterates over `self.results` and attempts to fetch any missing results
+    # Iterates over `self.results` and attempts to fetch any missing results.
+    # For example, if you get a response that has "totalItems" equal to a number that is larger
+    # than the size of "results", then this function easily lets you iterate over every item,
+    # and will automatically fetch any items not included in "results."
+    #
+    # Since this class includes Enumberable, any Enumerable methods are also available.
+    #
+    # Example:
+    #   2.7.2 :057 > cl = tcg.categories
+    #    D, [2022-01-25T22:20:34.597036 #67042] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params:
+    #    D, [2022-01-25T22:20:34.597129 #67042] DEBUG -- : {}
+    #    TCGPlayerAPI::ResponseStruct {
+    #        :totalItems => 67,
+    #        :results => [...]
+    #
+    #    2.7.2 :072 > cl.results.size
+    #    10
+    #
+    #    2.7.2 :073 > allcl = cl.map{|result| result.name}
+    #    D, [2022-01-25T22:29:11.506994 #67042] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params:
+    #    D, [2022-01-25T22:29:11.507161 #67042] DEBUG -- : {
+    #       :offset => 10,
+    #       :limit => 100
+    #     }
+    #     [
+    #     [ 0] "Alternate Souls",
+    #     [ 1] "Architect TCG",
+    #     [ 2] "Argent Saga TCG",
+    #     [ 3] "Axis & Allies",
+    #     ...
+    #     [64] "WoW",
+    #     [65] "YuGiOh",
+    #     [66] "Zombie World Order TCG"
+    #     ]
     def each(&block)
-      if(!self.totalItems.nil? && !self.results.nil?)
+      if(!self.totalItems.nil? && !self.results.nil? && !self.tcg_object.nil?)
         max_items = self.totalItems
-        fetched_items = self.results.size
 
         # Defaults
         offset = self.results.size
@@ -50,10 +86,16 @@ class TCGPlayerAPI
         offset += defined?(self.base_query.params.offset) ? self.base_query.params.offset : 0
 
         self.results.each(&block)
-        while(fetched_items != max_items && !self.results.empty?)
+        while(offset < max_items && !self.results.empty?)
           # Fetch more results
-          # Need query... put this in a query object?
+          fetch_params = self.base_query.params.dup.to_h
+          fetch_params[:offset] = offset
+          fetch_params[:limit] = limit
+          more_results = self.tcg_object.query(self.base_query.url, fetch_params)
+
           # iterate
+          more_results.results.each(&block)
+          offset += more_results.results.size
         end
       else
         # Throw an exception?
@@ -89,9 +131,6 @@ class TCGPlayerAPI
     end
   end
 
-  class ResultArray < Array
-  end
-
   # Helpers for pokemon-centric tasks
   class Pokemon
     attr_accessor :tcg
@@ -102,10 +141,15 @@ class TCGPlayerAPI
     end
 
     def category
-      return @category unless(@category.nil?)
-      limit = 100
-      categories = tcg.categories(limit: limit)
-      pc = categories.results.select{|c| c.name =~ /Pokemon/i}.first
+      @category ||= tcg.categories(limit: 100).select{|c| c.name =~ /Pokemon/i}.first
+    end
+
+    def categoryId
+      category.categoryId
+    end
+
+    def manifest
+      @manifest ||= tcg.category_search_manifest(categoryId)
     end
   end
 
@@ -120,14 +164,21 @@ class TCGPlayerAPI
   def initialize(params = {})
     self.user_agent = params[:user_agent]
     self.logger = params[:logger] || Logger.new(STDOUT)
+    self.logger.level = Logger::DEBUG if(params[:debug])
   end
 
-  # Get a new bearer token
-  # Do this automatically if other requests fail
-  def authorize(public_key, private_key)
+  # Get a new bearer token.  Specify your app's public and private key as parameters
+  # or via Environment variables (or via .env) TCG_PLAYER_API_PUBLIC_KEY and TCG_PLAYER_API_PRIVATE_KEY
+  # Parameters:
+  #   public_key: your TCP Player API pubic key
+  #   private_key: your TCP Player API pubic key
+  def authorize(params = {})
+    public_key = params[:public_key] || ENV['TCG_PLAYER_API_PUBLIC_KEY']
+    private_key = params[:private_key] || ENV['TCG_PLAYER_API_PRIVATE_KEY']
+
     #"grant_type=client_credentials&client_id=PUBLIC_KEY&client_secret=PRIVATE_KEY"
-    params = {grant_type: 'client_credentials', client_id: public_key, client_secret: private_key}
-    response = HTTP.post(TOKEN_URL, form: params)
+    query_params = {grant_type: 'client_credentials', client_id: public_key, client_secret: private_key}
+    response = HTTP.post(TOKEN_URL, form: query_params)
     resp_hash = response.parse
     logger.info resp_hash
 
@@ -140,8 +191,12 @@ class TCGPlayerAPI
     post = params.delete :post
     method = post ? 'post' : 'get'
     pkey = post ? :form : :params
+
+    logger.debug "Query: #{url} params: "
+    logger.ap params
+
     response = HTTP.auth("bearer #{bearer_token.token}").send(method, url, pkey => params)
-    ResponseStruct.new response.parse.merge({base_query: {url: url, params: _params}, http_response: response})
+    ResponseStruct.new response.parse.merge({base_query: {url: url, params: _params}, http_response: response, tcg_object: self})
   end
 
   # limit - max to return (default 10)
