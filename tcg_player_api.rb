@@ -129,6 +129,14 @@ class TCGPlayerAPI
     def to_s
       ap self, indent: -2
     end
+
+    def to_h(*args)
+      self.marshal_dump
+    end
+
+    def keys
+      return self.to_h.keys
+    end
   end
 
   # Helpers for pokemon-centric tasks
@@ -150,6 +158,26 @@ class TCGPlayerAPI
 
     def manifest
       @manifest ||= tcg.category_search_manifest(categoryId)
+    end
+
+    ##
+    # Returns the TCGPlaeryAPI filter corresponding to Sets
+    def sets
+      @set_filter ||= @manifest.results.first.filters.select{|f| f.name == 'SetName'}.first
+    end
+
+    ##
+    # Returns the TCGPlayerAPI filter item corresponding to the input set
+    #
+    #   pokemon.set('Base Set')
+    #   [
+    #       [0] TCGPlayerAPI::ResponseStruct {
+    #            :text => "Base Set",
+    #           :value => "Base Set"
+    #       }
+    #   ]
+    def set(set_name)
+      sets.items.select{|i| i.text == set_name}
     end
   end
 
@@ -190,7 +218,7 @@ class TCGPlayerAPI
     params = _params.dup
     post = params.delete :post
     method = post ? 'post' : 'get'
-    pkey = post ? :form : :params
+    pkey = post ? :json : :params
 
     logger.debug "Query: #{url} params: "
     logger.ap params
@@ -219,8 +247,12 @@ class TCGPlayerAPI
   end
 
   # https://docs.tcgplayer.com/reference/catalog_searchcategory
-  def category_search_products(params = {})
+  def category_search_products(id, params = {})
     search_params = {post: true}.merge(params)
     query("#{CATEGORIES_URL}/#{id}/search", search_params)
   end
+
+  #def product_details(pids, params = {})
+  #  query("#{CATEGORIES_URL}/#{id}/search", search_params)
+  #end
 end
