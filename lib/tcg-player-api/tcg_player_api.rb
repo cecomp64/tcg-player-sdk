@@ -134,9 +134,9 @@ class TCGPlayerAPI
   # Accessor to https://docs.tcgplayer.com/reference/pricing_getproductprices-1
   #
   # @param ids An array of product IDs to query
-  # @return [TCGPlayerAPI::ResponseStruct]
+  # @return [TCGPlayerAPI::ProductPriceList]
   def product_pricing(_ids)
     ids = _ids.is_a?(Array) ? _ids.join(',') : _ids
-    query("#{PRICING_URL}/product/#{ids}")
+    TCGPlayerAPI::ProductPriceList.new(query("#{PRICING_URL}/product/#{ids}"))
   end
 end

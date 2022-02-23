@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tcgplayer.com/pricing/product/85737,85736
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - bearer 6Qf-Gzp38teiDEgYC0lekuMHyMMBu9m0d4DvHfYYOp640dp-Li6JT5oRjcTcKIUi_bdw1oRPOWRDsE3ixvMJcJ5n4V-U4QVnb5NQoH7apEfC-8b-4889fE9KOtZ8WOa5N6gNAMUPY4x1g1ugAx226Nw0L05nzJR1GwG07xGdJqiArX1Mm8OG6roA4VHANNsVFqnvfttrqkbN1ddqA1ttCTPVi1-EaYS4Erlsa4NXDfv57fmBfD3b65WDi3YOjQE-syIW5eRirXg1hhU4fkIx_r2r7KPdvKBQZI2mmfetfe-nJmL62NK48RofYZTcxm4AizJSpQ
+      User-Agent:
+      - Unknown
+      Connection:
+      - close
+      Host:
+      - api.tcgplayer.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Feb 2022 23:39:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1999'
+      Connection:
+      - close
+      Set-Cookie:
+      - AWSALB=9PNn4cN0AQ6vRVchLb9jvQ9Cl0Lf3qkozrsscosSAMKKhESX0eY4tEVH4o7KaX4/XtSV8+2XfQSZ80woQFZs3m+1y/+foE2AXPVShl1Eai/ni7vqHdyb5k1l07+t;
+        Expires=Wed, 02 Mar 2022 23:39:09 GMT; Path=/
+      - AWSALBCORS=9PNn4cN0AQ6vRVchLb9jvQ9Cl0Lf3qkozrsscosSAMKKhESX0eY4tEVH4o7KaX4/XtSV8+2XfQSZ80woQFZs3m+1y/+foE2AXPVShl1Eai/ni7vqHdyb5k1l07+t;
+        Expires=Wed, 02 Mar 2022 23:39:09 GMT; Path=/; SameSite=None; Secure
+      Cache-Control:
+      - must-revalidate, max-age=300, private
+      Server:
+      - Microsoft-IIS/10.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"errors":[],"results":[{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Normal"},{"productId":85737,"lowPrice":4.00,"midPrice":6.69,"highPrice":8.61,"marketPrice":8.61,"directLowPrice":null,"subTypeName":"Holofoil"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
+        Edition"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
+        Edition Holofoil"},{"productId":85737,"lowPrice":4.99,"midPrice":5.63,"highPrice":7.73,"marketPrice":10.35,"directLowPrice":null,"subTypeName":"Reverse
+        Holofoil"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited
+        Holofoil"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Normal"},{"productId":85736,"lowPrice":6.82,"midPrice":19.99,"highPrice":39.99,"marketPrice":20.08,"directLowPrice":6.82,"subTypeName":"Holofoil"},{"productId":85736,"lowPrice":4.27,"midPrice":5.71,"highPrice":11.24,"marketPrice":9.73,"directLowPrice":4.27,"subTypeName":"Reverse
+        Holofoil"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
+        Edition Holofoil"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
+        Edition"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited
+        Holofoil"}]}'
+  recorded_at: Wed, 23 Feb 2022 23:39:09 GMT
+recorded_with: VCR 6.0.0
