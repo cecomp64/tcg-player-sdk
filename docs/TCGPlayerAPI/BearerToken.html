@@ -244,7 +244,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>True if the bearer token is within five minutes of expiring.</p>
+</div></span>
   
 </li>
 
@@ -546,6 +548,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Returns true if the bearer token is within five minutes of expiring.</p>
+
 
   </div>
 </div>
@@ -561,6 +565,11 @@
       
       
       
+        &mdash;
+        <div class='inline'>
+<p>true if the bearer token is within five minutes of expiring</p>
+</div>
+      
     </li>
   
 </ul>
@@ -571,15 +580,15 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expired?'>expired?</span>
-
+  <span class='kw'>return</span> <span class='id identifier rubyid_expiration'>expiration</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_expiration'>expiration</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -601,12 +610,12 @@
       <pre class="lines">
 
 
-15
-16
-17</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_ap'>ap</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>indent:</span> <span class='op'>-</span><span class='int'>2</span>
@@ -621,9 +630,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 22 23:32:08 2022 by
+  Generated on Wed Feb 23 12:37:57 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.2).
+  0.9.27 (ruby-2.7.1).
 </div>
 
     </div>
