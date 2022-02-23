@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'irb'
+require 'irb/completion'
+
+# Add source code to require path
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+#puts $:
+
+require 'tcg-player-api'
+IRB.start

@@ -1,7 +1,7 @@
 ##
 # Wrap up request handling and common functions for TCGPlayer price API
 class TCGPlayerAPI
-  attr_accessor :bearer_token, :user_agent, :logger
+  attr_accessor :bearer_token, :user_agent, :logger, :noretry, :public_key, :private_key
 
   API_VERSION = '1.39'
   BASE_URL = 'https://api.tcgplayer.com'
@@ -10,23 +10,40 @@ class TCGPlayerAPI
   CATEGORIES_URL = "#{CATALOG_URL}/categories"
   PRICING_URL = "#{BASE_URL}/pricing"
 
+  ##
+  # @param params[:user_agent] An identifying user agent string to be passed along with each request
+  # @param params[:bearer_token] Optionally pass in a previously authenticated bearer token
+  # @param params[:noretry] Set this to true to disable retrying queries when the bearer token is invalid
+  # @param params[:logger] Optionally pass a custom logging object
+  # @param params[:debyg] Set output verbosity to DEBUG.  Default verbosity is WARN
   def initialize(params = {})
     self.user_agent = params[:user_agent] || 'Unknown'
+    self.bearer_token = params[:bearer_token]
+    self.noretry = params[:noretry]
+
+    self.public_key = params[:public_key]
+    self.private_key = params[:private_key]
+
+    # Setup logging
     self.logger = params[:logger] || Logger.new(STDOUT)
-    self.logger.level = Logger::DEBUG if(params[:debug])
+    if(params[:debug])
+      self.logger.level = Logger::DEBUG
+    else
+      self.logger.level = Logger::WARN
+    end
   end
 
   # Get a new bearer token.  Specify your app's public and private key as parameters
   # or via Environment variables (or via .env) TCG_PLAYER_API_PUBLIC_KEY and TCG_PLAYER_API_PRIVATE_KEY
-  # Parameters:
-  #   public_key: your TCP Player API pubic key
-  #   private_key: your TCP Player API pubic key
+  #
+  # @param params[:public_key] your TCP Player API pubic key
+  # @param params[:private_key] your TCP Player API pubic key
   def authorize(params = {})
-    public_key = params[:public_key] || ENV['TCG_PLAYER_API_PUBLIC_KEY']
-    private_key = params[:private_key] || ENV['TCG_PLAYER_API_PRIVATE_KEY']
+    pub_key = params[:public_key] || public_key || ENV['TCG_PLAYER_API_PUBLIC_KEY']
+    pri_key = params[:private_key] || private_key || ENV['TCG_PLAYER_API_PRIVATE_KEY']
 
     #"grant_type=client_credentials&client_id=PUBLIC_KEY&client_secret=PRIVATE_KEY"
-    query_params = {grant_type: 'client_credentials', client_id: public_key, client_secret: private_key}
+    query_params = {grant_type: 'client_credentials', client_id: pub_key, client_secret: pri_key}
     response = HTTP.post(TOKEN_URL, form: query_params)
     resp_hash = response.parse
     logger.info resp_hash
@@ -34,18 +51,28 @@ class TCGPlayerAPI
     self.bearer_token = BearerToken.new resp_hash
   end
 
-  # Error handling?
   def query(url, _params = {})
     params = _params.dup
     post = params.delete :post
     method = post ? 'post' : 'get'
     pkey = post ? :json : :params
+    skip_retry = noretry || params[:noretry]
 
     logger.debug "Query: #{url} params: "
     logger.ap params
 
+    # Check for expiration of bearer token
     response = HTTP.auth("bearer #{bearer_token.token}").headers('User-Agent' => user_agent).send(method, url, pkey => params)
-    ResponseStruct.new response.parse.merge({base_query: {url: url, params: _params}, http_response: response, tcg_object: self})
+    ret = ResponseStruct.new response.parse.merge({base_query: {url: url, params: _params}, http_response: response, tcg_object: self})
+
+    # Detect an invalid bearer token and attempt to retry
+    if(!skip_retry && ret.errors && ret.errors.size > 0 && ret.errors.reduce(false){|sum, err| sum = (sum || (err =~ /bearer token/))})
+      # Reauthorize and try again
+      authorize
+      ret = query(url, _params.merge({noretry: true}))
+    end
+
+    return ret
   end
 
   # limit - max to return (default 10)

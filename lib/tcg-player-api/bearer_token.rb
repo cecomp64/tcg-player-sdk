@@ -8,8 +8,10 @@ class TCGPlayerAPI::BearerToken
     self.expiration = DateTime.parse(params['.expires'])
   end
 
+  ##
+  # @return true if the bearer token is within five minutes of expiring
   def expired?
-
+    return expiration.nil? || (DateTime.now >= expiration)
   end
 
   def to_s
