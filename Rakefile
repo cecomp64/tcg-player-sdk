@@ -1,4 +1,5 @@
 require 'yard'
+require 'rake/testtask'
 
 YARD::Rake::YardocTask.new do |t|
   t.files   = ['tcg_player_api.rb']
@@ -24,3 +25,10 @@ desc "Uninstall any existing tcg-player-api gems"
 task :uninstall_gem, [] do |task, args|
   puts `gem uninstall tcg-player-api`
 end
+
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+end
+
+desc "Run tests"
+task :default => :test
