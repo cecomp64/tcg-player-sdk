@@ -1,7 +1,6 @@
-require 'minitest/autorun'
-require 'tcg-player-api'
+require 'test_helper'
 
-class TCGPlayerAPITest
+class TCGPlayerAPITest < Minitest::Test
   def test_require
 
   end

@@ -2,7 +2,7 @@ require 'yard'
 require 'rake/testtask'
 
 YARD::Rake::YardocTask.new do |t|
-  t.files   = ['tcg_player_api.rb']
+  t.files   = ['./lib/tcg-player-api.rb'] + Dir.glob('./lib/tcg-player-api/*')
   t.options = ['-o', 'docs']
   t.stats_options = ['--list-undoc']
 end

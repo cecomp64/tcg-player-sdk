@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>tcg_player_api.rb</dd>
+    <dd>lib/tcg-player-api/tcg_player_api.rb</dd>
   </dl>
   
 </div>
@@ -488,14 +488,14 @@
       <pre class="lines">
 
 
-193
-194
-195
-196
-197</pre>
+13
+14
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 193</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_agent'>user_agent</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:user_agent</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Unknown</span><span class='tstring_end'>&#39;</span></span>
@@ -540,12 +540,12 @@
       <pre class="lines">
 
 
-184
-185
-186</pre>
+4
+5
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bearer_token'>bearer_token</span>
   <span class='ivar'>@bearer_token</span>
@@ -583,12 +583,12 @@
       <pre class="lines">
 
 
-184
-185
-186</pre>
+4
+5
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logger'>logger</span>
   <span class='ivar'>@logger</span>
@@ -626,12 +626,12 @@
       <pre class="lines">
 
 
-184
-185
-186</pre>
+4
+5
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_user_agent'>user_agent</span>
   <span class='ivar'>@user_agent</span>
@@ -678,21 +678,21 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215</pre>
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_authorize'>authorize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_public_key'>public_key</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:public_key</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TCG_PLAYER_API_PUBLIC_KEY</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -737,12 +737,12 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-236
-237
-238</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_categories'>categories</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#CATEGORIES_URL-constant" title="TCGPlayerAPI::CATEGORIES_URL (constant)">CATEGORIES_URL</a></span></span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -778,12 +778,12 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-241
-242
-243</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 241</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_category_details'>category_details</span><span class='lparen'>(</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#CATEGORIES_URL-constant" title="TCGPlayerAPI::CATEGORIES_URL (constant)">CATEGORIES_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -819,12 +819,12 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-246
-247
-248</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 246</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_category_search_manifest'>category_search_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#CATEGORIES_URL-constant" title="TCGPlayerAPI::CATEGORIES_URL (constant)">CATEGORIES_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/search/manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -860,13 +860,13 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-251
-252
-253
-254</pre>
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_category_search_products'>category_search_products</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_search_params'>search_params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>post:</span> <span class='kw'>true</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -941,13 +941,13 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-265
-266
-267
-268</pre>
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 265</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_pricing'>product_pricing</span><span class='lparen'>(</span><span class='id identifier rubyid__ids'>_ids</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='id identifier rubyid__ids'>_ids</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid__ids'>_ids</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid__ids'>_ids</span>
@@ -984,21 +984,21 @@ private_key: your TCP Player API pubic key
       <pre class="lines">
 
 
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229</pre>
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/tcg_player_api.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid__params'>_params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid__params'>_params</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
@@ -1022,9 +1022,9 @@ private_key: your TCP Player API pubic key
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 22 15:05:09 2022 by
+  Generated on Tue Feb 22 23:32:08 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.1).
+  0.9.27 (ruby-2.7.2).
 </div>
 
     </div>

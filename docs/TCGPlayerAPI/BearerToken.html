@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>tcg_player_api.rb</dd>
+    <dd>lib/tcg-player-api/bearer_token.rb</dd>
   </dl>
   
 </div>
@@ -329,15 +329,15 @@
       <pre class="lines">
 
 
-12
-13
-14
-15
-16
-17</pre>
+4
+5
+6
+7
+8
+9</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expires_in'>expires_in</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>expires_in</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -383,12 +383,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expiration'>expiration</span>
   <span class='ivar'>@expiration</span>
@@ -426,12 +426,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expires_in'>expires_in</span>
   <span class='ivar'>@expires_in</span>
@@ -469,12 +469,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_issued'>issued</span>
   <span class='ivar'>@issued</span>
@@ -512,12 +512,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token'>token</span>
   <span class='ivar'>@token</span>
@@ -571,12 +571,12 @@
       <pre class="lines">
 
 
-19
-20
-21</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expired?'>expired?</span>
 
@@ -601,12 +601,12 @@
       <pre class="lines">
 
 
-23
-24
-25</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-api/bearer_token.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_ap'>ap</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>indent:</span> <span class='op'>-</span><span class='int'>2</span>
@@ -621,9 +621,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Feb 22 15:05:09 2022 by
+  Generated on Tue Feb 22 23:32:08 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.1).
+  0.9.27 (ruby-2.7.2).
 </div>
 
     </div>
