@@ -76,7 +76,7 @@ class TCGPlayerAPI
     logger.ap params
 
     # Check for expiration of bearer token
-    response = HTTP.auth("bearer #{bearer_token.token}").headers('User-Agent' => user_agent).send(method, url, pkey => params)
+    response = HTTP.auth("bearer #{bearer_token ? bearer_token.token : 'none'}").headers('User-Agent' => user_agent).send(method, url, pkey => params)
     ret = ResponseStruct.new response.parse.merge({base_query: {url: url, params: _params}, http_response: response, tcg_object: self})
 
     # Detect an invalid bearer token and attempt to retry

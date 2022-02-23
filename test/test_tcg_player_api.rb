@@ -31,8 +31,19 @@ class TCGPlayerAPITest < Minitest::Test
   # This test requires a valid API key
   def test_retry_with_invalid_bearer_token
     tcg = TCGPlayerAPI.new(bearer_token: invalid_bearer_token)
-    response = tcg.product_pricing(83543)
+    sample_successful_query(tcg)
+  end
 
+  ##
+  # This test requires a valid API key
+  def test_query_without_authorize
+    tcg = TCGPlayerAPI.new
+    sample_successful_query(tcg)
+  end
+
+  private
+  def sample_successful_query(tcg)
+    response = tcg.product_pricing(83543)
     assert_equal response.success, true
     assert_equal response.errors.size, 0
   end
