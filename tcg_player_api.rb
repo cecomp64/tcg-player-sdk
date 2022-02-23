@@ -188,9 +188,10 @@ class TCGPlayerAPI
   TOKEN_URL = "#{BASE_URL}/token"
   CATALOG_URL = "#{BASE_URL}/catalog"
   CATEGORIES_URL = "#{CATALOG_URL}/categories"
+  PRICING_URL = "#{BASE_URL}/pricing"
 
   def initialize(params = {})
-    self.user_agent = params[:user_agent]
+    self.user_agent = params[:user_agent] || 'Unknown'
     self.logger = params[:logger] || Logger.new(STDOUT)
     self.logger.level = Logger::DEBUG if(params[:debug])
   end
@@ -223,7 +224,7 @@ class TCGPlayerAPI
     logger.debug "Query: #{url} params: "
     logger.ap params
 
-    response = HTTP.auth("bearer #{bearer_token.token}").send(method, url, pkey => params)
+    response = HTTP.auth("bearer #{bearer_token.token}").headers('User-Agent' => user_agent).send(method, url, pkey => params)
     ResponseStruct.new response.parse.merge({base_query: {url: url, params: _params}, http_response: response, tcg_object: self})
   end
 
@@ -255,4 +256,14 @@ class TCGPlayerAPI
   #def product_details(pids, params = {})
   #  query("#{CATEGORIES_URL}/#{id}/search", search_params)
   #end
+
+  ##
+  # Accessor to https://docs.tcgplayer.com/reference/pricing_getproductprices-1
+  #
+  # @param ids An array of product IDs to query
+  # @return ResponseStruct with raw query results
+  def product_pricing(_ids)
+    ids = _ids.is_a?(Array) ? _ids.join(',') : _ids
+    query("#{PRICING_URL}/product/#{ids}")
+  end
 end

@@ -84,3 +84,15 @@ sets = mani.results.first.filters.select{|f| f.name == 'SetName'}
 
 ```
 
+## Tests
+
+https://github.com/vcr/vcr
+
+## Gem info
+
+https://guides.rubygems.org/make-your-own-gem/
+
+```shell
+gem build foo.gemspec
+gem install foo-0-0-0.gem
+```

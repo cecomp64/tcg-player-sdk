@@ -148,6 +148,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#keys-instance_method" title="#keys (instance method)">#<strong>keys</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#method_missing-instance_method" title="#method_missing (instance method)">#<strong>method_missing</strong>(mid, *args)  &#x21d2; Object </a>
     
 
@@ -173,6 +195,28 @@
   <span class="summary_signature">
     
       <a href="#respond_to_missing%3F-instance_method" title="#respond_to_missing? (instance method)">#<strong>respond_to_missing?</strong>(mid, include_private = nil)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_h-instance_method" title="#to_h (instance method)">#<strong>to_h</strong>(*args)  &#x21d2; Object </a>
     
 
     
@@ -275,27 +319,27 @@
       <pre class="lines">
 
 
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80</pre>
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_mid'>mid</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='comment'># Avoid assignments
@@ -339,7 +383,39 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Iterates over `self.results` and attempts to fetch any missing results</p>
+<p>Iterates over `self.results` and attempts to fetch any missing results. For example, if you get a response that has “totalItems” equal to a number that is larger than the size of “results”, then this function easily lets you iterate over every item, and will automatically fetch any items not included in “results.”</p>
+
+<p>Since this class includes Enumberable, any Enumerable methods are also available.</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby">2.7.2 :057 &gt; cl = tcg.categories
+ D, [2022-01-25T22:20:34.597036 #67042] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params:
+ D, [2022-01-25T22:20:34.597129 #67042] DEBUG -- : {}
+ TCGPlayerAPI::ResponseStruct {
+     :totalItems =&gt; 67,
+     :results =&gt; [...]
+
+ 2.7.2 :072 &gt; cl.results.size
+ 10
+
+ 2.7.2 :073 &gt; allcl = cl.map{|result| result.name}
+ D, [2022-01-25T22:29:11.506994 #67042] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params:
+ D, [2022-01-25T22:29:11.507161 #67042] DEBUG -- : {
+    :offset =&gt; 10,
+    :limit =&gt; 100
+  }
+  [
+  [ 0] &quot;Alternate Souls&quot;,
+  [ 1] &quot;Architect TCG&quot;,
+  [ 2] &quot;Argent Saga TCG&quot;,
+  [ 3] &quot;Axis &amp; Allies&quot;,
+  ...
+  [64] &quot;WoW&quot;,
+  [65] &quot;YuGiOh&quot;,
+  [66] &quot;Zombie World Order TCG&quot;
+  ]
+</code></pre>
 
 
   </div>
@@ -353,34 +429,38 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60</pre>
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_totalItems'>totalItems</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+  <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_totalItems'>totalItems</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tcg_object'>tcg_object</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_max_items'>max_items</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_totalItems'>totalItems</span>
-    <span class='id identifier rubyid_fetched_items'>fetched_items</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
 
     <span class='comment'># Defaults
 </span>    <span class='id identifier rubyid_offset'>offset</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -388,14 +468,50 @@
     <span class='id identifier rubyid_offset'>offset</span> <span class='op'>+=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_base_query'>base_query</span><span class='period'>.</span><span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_offset'>offset</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_base_query'>base_query</span><span class='period'>.</span><span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_offset'>offset</span> <span class='op'>:</span> <span class='int'>0</span>
 
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-    <span class='kw'>while</span><span class='lparen'>(</span><span class='id identifier rubyid_fetched_items'>fetched_items</span> <span class='op'>!=</span> <span class='id identifier rubyid_max_items'>max_items</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='rparen'>)</span>
+    <span class='kw'>while</span><span class='lparen'>(</span><span class='id identifier rubyid_offset'>offset</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_max_items'>max_items</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='rparen'>)</span>
       <span class='comment'># Fetch more results
-</span>      <span class='comment'># Need query... put this in a query object?
-</span>      <span class='comment'># iterate
-</span>    <span class='kw'>end</span>
+</span>      <span class='id identifier rubyid_fetch_params'>fetch_params</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_base_query'>base_query</span><span class='period'>.</span><span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
+      <span class='id identifier rubyid_fetch_params'>fetch_params</span><span class='lbracket'>[</span><span class='symbol'>:offset</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_offset'>offset</span>
+      <span class='id identifier rubyid_fetch_params'>fetch_params</span><span class='lbracket'>[</span><span class='symbol'>:limit</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_limit'>limit</span>
+      <span class='id identifier rubyid_more_results'>more_results</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tcg_object'>tcg_object</span><span class='period'>.</span><span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_base_query'>base_query</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_fetch_params'>fetch_params</span><span class='rparen'>)</span>
+
+      <span class='comment'># iterate
+</span>      <span class='id identifier rubyid_more_results'>more_results</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_offset'>offset</span> <span class='op'>+=</span> <span class='id identifier rubyid_more_results'>more_results</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+    <span class='kw'>end</span>
   <span class='kw'>else</span>
     <span class='comment'># Throw an exception?
 </span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="keys-instance_method">
+  
+    #<strong>keys</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_keys'>keys</span>
+  <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -439,15 +555,45 @@
       <pre class="lines">
 
 
-82
-83
-84</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to_missing?'>respond_to_missing?</span><span class='lparen'>(</span><span class='id identifier rubyid_mid'>mid</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_h-instance_method">
+  
+    #<strong>to_h</strong>(*args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_h'>to_h</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_marshal_dump'>marshal_dump</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -469,12 +615,12 @@
       <pre class="lines">
 
 
-86
-87
-88</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_ap'>ap</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>indent:</span> <span class='op'>-</span><span class='int'>2</span>
@@ -513,16 +659,16 @@
       <pre class="lines">
 
 
-31
-32
-33
-34
-35
 36
-37</pre>
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'tcg_player_api.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='id identifier rubyid_default'>default</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_blk'>blk</span><span class='rparen'>)</span>
   <span class='kw'>begin</span>
@@ -541,9 +687,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Jan 22 12:36:13 2022 by
+  Generated on Tue Feb 22 15:05:09 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.2).
+  0.9.27 (ruby-2.7.1).
 </div>
 
     </div>
