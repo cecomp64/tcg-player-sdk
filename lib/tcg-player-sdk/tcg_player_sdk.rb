@@ -1,6 +1,6 @@
 ##
 # Wrap up request handling and common functions for TCGPlayer price API
-class TCGPlayerAPI
+class TCGPlayerSDK
   attr_accessor :bearer_token, :user_agent, :logger, :noretry, :public_key, :private_key
 
   API_VERSION = '1.39'
@@ -41,7 +41,7 @@ class TCGPlayerAPI
   #   - public_key: your TCP Player API pubic key
   #   - private_key: your TCP Player API pubic key
   #
-  # @return [TCGPlayerAPI::BearerToken]
+  # @return [TCGPlayerSDK::BearerToken]
   def authorize(params = {})
     pub_key = params[:public_key] || public_key || ENV['TCG_PLAYER_API_PUBLIC_KEY']
     pri_key = params[:private_key] || private_key || ENV['TCG_PLAYER_API_PRIVATE_KEY']
@@ -64,7 +64,7 @@ class TCGPlayerAPI
   #   - noretry: Override any other retry settings and skip retry if true
   #   - *: Additional entries in _params hash are passed through to API as arguments
   #
-  # @return [TCGPlayerAPI::ResponseStruct]
+  # @return [TCGPlayerSDK::ResponseStruct]
   def query(url, _params = {})
     params = _params.dup
     post = params.delete :post
@@ -98,7 +98,7 @@ class TCGPlayerAPI
   #   - sort_order: property to sort by (defaults to name)
   #   - sort_desc: descending sort order
   #
-  # @return [TCGPlayerAPI::ResponseStruct]
+  # @return [TCGPlayerSDK::ResponseStruct]
   def categories(params = {})
     query(CATEGORIES_URL, params)
   end
@@ -106,21 +106,21 @@ class TCGPlayerAPI
   ##
   # https://docs.tcgplayer.com/reference/catalog_getcategory-1
   #
-  # @return [TCGPlayerAPI::ResponseStruct]
+  # @return [TCGPlayerSDK::ResponseStruct]
   def category_details(ids)
     query("#{CATEGORIES_URL}/#{ids.join(',')}")
   end
 
   # https://docs.tcgplayer.com/reference/catalog_getcategorysearchmanifest
   #
-  # @return [TCGPlayerAPI::ResponseStruct]
+  # @return [TCGPlayerSDK::ResponseStruct]
   def category_search_manifest(id)
     query("#{CATEGORIES_URL}/#{id}/search/manifest")
   end
 
   # https://docs.tcgplayer.com/reference/catalog_searchcategory
   #
-  # @return [TCGPlayerAPI::ResponseStruct]
+  # @return [TCGPlayerSDK::ResponseStruct]
   def category_search_products(id, params = {})
     search_params = {post: true}.merge(params)
     query("#{CATEGORIES_URL}/#{id}/search", search_params)
@@ -134,9 +134,9 @@ class TCGPlayerAPI
   # Accessor to https://docs.tcgplayer.com/reference/pricing_getproductprices-1
   #
   # @param ids An array of product IDs to query
-  # @return [TCGPlayerAPI::ProductPriceList]
+  # @return [TCGPlayerSDK::ProductPriceList]
   def product_pricing(_ids)
     ids = _ids.is_a?(Array) ? _ids.join(',') : _ids
-    TCGPlayerAPI::ProductPriceList.new(query("#{PRICING_URL}/product/#{ids}"))
+    TCGPlayerSDK::ProductPriceList.new(query("#{PRICING_URL}/product/#{ids}"))
   end
 end

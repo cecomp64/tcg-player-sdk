@@ -1,5 +1,5 @@
 # Helpers for pokemon-centric tasks
-class TCGPlayerAPI::Pokemon
+class TCGPlayerSDK::Pokemon
   attr_accessor :tcg
 
   def initialize(_tcg)
@@ -26,11 +26,11 @@ class TCGPlayerAPI::Pokemon
   end
 
   ##
-  # Returns the TCGPlayerAPI filter item corresponding to the input set
+  # Returns the TCGPlayerSDK filter item corresponding to the input set
   #
   #   pokemon.set('Base Set')
   #   [
-  #       [0] TCGPlayerAPI::ResponseStruct {
+  #       [0] TCGPlayerSDK::ResponseStruct {
   #            :text => "Base Set",
   #           :value => "Base Set"
   #       }

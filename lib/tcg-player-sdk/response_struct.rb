@@ -1,4 +1,4 @@
-class TCGPlayerAPI::ResponseStruct < OpenStruct
+class TCGPlayerSDK::ResponseStruct < OpenStruct
   include Enumerable
 
   ##
@@ -26,7 +26,7 @@ class TCGPlayerAPI::ResponseStruct < OpenStruct
   #   2.7.2 :057 > cl = tcg.categories
   #    D, [2022-01-25T22:20:34.597036 #67042] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params:
   #    D, [2022-01-25T22:20:34.597129 #67042] DEBUG -- : {}
-  #    TCGPlayerAPI::ResponseStruct {
+  #    TCGPlayerSDK::ResponseStruct {
   #        :totalItems => 67,
   #        :results => [...]
   #
@@ -86,8 +86,8 @@ class TCGPlayerAPI::ResponseStruct < OpenStruct
 
       # Turn it into a ResponseStruct
       new_val = (value.is_a?(Array) && value.first.is_a?(Hash)) ?
-                  value.map{|v| TCGPlayerAPI::ResponseStruct.new(v)} :
-                  ((value.is_a?(Hash)) ? TCGPlayerAPI::ResponseStruct.new(value) : value)
+                  value.map{|v| TCGPlayerSDK::ResponseStruct.new(v)} :
+                  ((value.is_a?(Hash)) ? TCGPlayerSDK::ResponseStruct.new(value) : value)
 
       # Save it back as a ResponseStruct
       send("#{mid.to_s}=", new_val)

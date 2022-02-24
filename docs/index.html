@@ -58,19 +58,19 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-TCG+Player+API">TCG Player API</h1>
+<h1 id="label-TCG+Player+SDK">TCG Player SDK</h1>
 
-<pre class="code ruby"><code class="ruby">2.7.1 :002 &gt; tcg = TCGPlayerAPI.new
-2.7.1 :003 &gt; tcg.authorize
+<pre class="code ruby"><code class="ruby">2.7.1 : 002 &gt; tcg = TCGPlayerSDK.new
+2.7.1 : 003 &gt; tcg.authorize
 
-2.7.1 :011 &gt; pika = TCGPlayerAPI::Pokemon.new tcg
-2.7.1 :014 &gt; pika.category
+2.7.1 : 011 &gt; pika = TCGPlayerSDK::Pokemon.new tcg
+2.7.1 : 014 &gt; pika.category
 
-D, [2022-02-15T15:15:51.969843 #10721] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params: 
-D, [2022-02-15T15:15:51.969977 #10721] DEBUG -- : {
+D, [2022 - 02 - 15 T15 : 15 : 51.969843 #10721] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params: 
+D, [2022 - 02 - 15 T15 : 15 : 51.969977 #10721] DEBUG -- : {
 :limit =&gt; 100
 }
-TCGPlayerAPI::ResponseStruct {
+TCGPlayerSDK::ResponseStruct {
   :categoryId =&gt; 3,
     :name =&gt; &quot;Pokemon&quot;,
     :modifiedOn =&gt; &quot;2022-02-15T21:55:12.807&quot;,
@@ -84,48 +84,48 @@ TCGPlayerAPI::ResponseStruct {
     :isDirect =&gt; true
 }
 
-2.7.1 :039 &gt; mani = pika.manifest
-2.7.1 :038 &gt; mani.to_h.keys
+2.7.1 : 039 &gt; mani = pika.manifest
+2.7.1 : 038 &gt; mani.to_h.keys
 [
-  [0] :success,
-  [1] :errors,
-  [2] :results,
-  [3] :base_query,
-  [4] :http_response,
-  [5] :tcg_object
+  [0] : success,
+  [1] : errors,
+  [2] : results,
+  [3] : base_query,
+  [4] : http_response,
+  [5] : tcg_object
 ]
 
-2.7.1 :045 &gt; mani.results.first.keys
+2.7.1 : 045 &gt; mani.results.first.keys
 [
-  [0] :sorting,
-  [1] :filters,
-  [2] :keys
+  [0] : sorting,
+  [1] : filters,
+  [2] : keys
 ]
-2.7.1 :046 &gt; mani.results.first.sorting
+2.7.1 : 046 &gt; mani.results.first.sorting
 [
-  [0] TCGPlayerAPI::ResponseStruct {
+  [0] TCGPlayerSDK::ResponseStruct {
   :text =&gt; &quot;A-Z&quot;,
     :value =&gt; &quot;ProductName ASC&quot;
 },
-  [1] TCGPlayerAPI::ResponseStruct {
+  [1] TCGPlayerSDK::ResponseStruct {
   :text =&gt; &quot;Price: High to Low&quot;,
     :value =&gt; &quot;MinPrice DESC&quot;
 },
-  [2] TCGPlayerAPI::ResponseStruct {
+  [2] TCGPlayerSDK::ResponseStruct {
   :text =&gt; &quot;Price: Low to High&quot;,
     :value =&gt; &quot;MinPrice ASC&quot;
 },
-  [3] TCGPlayerAPI::ResponseStruct {
+  [3] TCGPlayerSDK::ResponseStruct {
   :text =&gt; &quot;Relevance&quot;,
     :value =&gt; &quot;Relevance&quot;
 },
-  [4] TCGPlayerAPI::ResponseStruct {
+  [4] TCGPlayerSDK::ResponseStruct {
   :text =&gt; &quot;Best Selling&quot;,
     :value =&gt; &quot;Sales DESC&quot;
 }
 ]
 
-2.7.1 :052 &gt; mani.results.first.filters.map(&amp;:name)
+2.7.1 : 052 &gt; mani.results.first.filters.map(&amp;:name)
 [
   [0] &quot;ProductName&quot;,
   [1] &quot;CardText&quot;,
@@ -138,7 +138,7 @@ TCGPlayerAPI::ResponseStruct {
   [8] &quot;Price&quot;
 ]
 
-sets = mani.results.first.filters.select{|f| f.name == &#39;SetName&#39;}
+sets = mani.results.first.filters.select { |f| f.name == &#39;SetName&#39; }
 </code></pre>
 
 <h2 id="label-Tests">Tests</h2>
@@ -148,7 +148,7 @@ sets = mani.results.first.filters.select{|f| f.name == &#39;SetName&#39;}
 </div></div>
 
       <div id="footer">
-  Generated on Wed Feb 23 15:46:02 2022 by
+  Generated on Wed Feb 23 16:21:07 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

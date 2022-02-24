@@ -1,4 +1,4 @@
-class TCGPlayerAPI::BearerToken
+class TCGPlayerSDK::BearerToken
   attr_accessor :expires_in, :token, :expiration, :issued
 
   def initialize(params = {})

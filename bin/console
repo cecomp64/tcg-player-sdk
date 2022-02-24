@@ -6,5 +6,5 @@ require 'irb/completion'
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 #puts $:
 
-require 'tcg-player-api'
+require 'tcg-player-sdk'
 IRB.start

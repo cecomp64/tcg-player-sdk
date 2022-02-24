@@ -1,16 +1,16 @@
-class TCGPlayerAPI::ProductPriceList
+class TCGPlayerSDK::ProductPriceList
   attr_accessor :response
 
   ##
   # Group prices by product ID.  This will set
   # prices to an empty hash if there was an error.  Check response.errors for details about any errors.
   #
-  # @param _response[TCGPlayerAPI::ResponseStruct] the result of calling TCGPlayerAPI#product_pricing
+  # @param _response[TCGPlayerSDK::ResponseStruct] the result of calling TCGPlayerAPI#product_pricing
   def initialize(_response)
     @response = _response
 
     if(response.success && response.results)
-      @prices = response.results.map{|r| TCGPlayerAPI::ProductPrice.new(r)}.group_by{|r| r.productId}
+      @prices = response.results.map{|r| TCGPlayerSDK::ProductPrice.new(r)}.group_by{|r| r.productId}
     else
       @prices = {}
     end
@@ -41,7 +41,7 @@ class TCGPlayerAPI::ProductPriceList
   #     ]
   #   }
   #
-  # @return [Hash<Integer, Array<TCGPlayerAPI::ProductPrice>>]
+  # @return [Hash<Integer, Array<TCGPlayerSDK::ProductPrice>>]
   def prices
     @prices
   end
@@ -49,7 +49,7 @@ class TCGPlayerAPI::ProductPriceList
   ##
   # Weed out any ProductPrice objects that have no valid prices.
   #
-  # @return [Hash<Integer, Array<TCGPlayerAPI::ProductPrice>>]
+  # @return [Hash<Integer, Array<TCGPlayerSDK::ProductPrice>>]
   def valid_prices
     valid_prices = {}
     @prices.each do |id, prl|
@@ -71,7 +71,7 @@ end
 #             "directLowPrice" => nil,
 #                "subTypeName" => "Unlimited Holofoil"
 #         },
-class TCGPlayerAPI::ProductPrice < TCGPlayerAPI::ResponseStruct
+class TCGPlayerSDK::ProductPrice < TCGPlayerSDK::ResponseStruct
   def initialize(hash = nil)
     super
   end

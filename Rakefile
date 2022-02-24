@@ -2,14 +2,14 @@ require 'yard'
 require 'rake/testtask'
 
 YARD::Rake::YardocTask.new do |t|
-  t.files   = ['./lib/tcg-player-api.rb'] + Dir.glob('./lib/tcg-player-api/*')
+  t.files   = ['./lib/tcg-player-sdk.rb'] + Dir.glob('./lib/tcg-player-sdk/*')
   t.options = ['-o', 'docs']
   t.stats_options = ['--list-undoc']
 end
 
 desc "Build gem  Easy Peasy."
 task :build_gem, [] do |task, args|
-  result = `gem build tcg-player-api`
+  result = `gem build tcg-player-sdk`
   puts result
 end
 
@@ -21,9 +21,9 @@ task :install_gem, [] do |task, args|
   puts result
 end
 
-desc "Uninstall any existing tcg-player-api gems"
+desc "Uninstall any existing tcg-player-sdk gems"
 task :uninstall_gem, [] do |task, args|
-  puts `gem uninstall tcg-player-api`
+  puts `gem uninstall tcg-player-sdk`
 end
 
 Rake::TestTask.new do |t|
