@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'tcg-player-api'
-  s.version     = '0.1.2'
+  s.version     = '0.1.3'
   s.summary     = "A Ruby interface to the TCGPlayer.com API for trading card prices."
   s.description = "The tcg-player-api gem is a convenient wrapper to the TCGPlayer JSON API.  Easily query the entire API, with helpers and accessors for common queries.  This gem also provides helpers for Pokemon-specific queries.  A work in progress."
   s.authors     = ["Carl Svensson"]
