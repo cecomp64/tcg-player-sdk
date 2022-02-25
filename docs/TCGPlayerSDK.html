@@ -116,7 +116,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="TCGPlayerSDK/BearerToken.html" title="TCGPlayerSDK::BearerToken (class)">BearerToken</a></span>, <span class='object_link'><a href="TCGPlayerSDK/Pokemon.html" title="TCGPlayerSDK::Pokemon (class)">Pokemon</a></span>, <span class='object_link'><a href="TCGPlayerSDK/ProductPrice.html" title="TCGPlayerSDK::ProductPrice (class)">ProductPrice</a></span>, <span class='object_link'><a href="TCGPlayerSDK/ProductPriceList.html" title="TCGPlayerSDK::ProductPriceList (class)">ProductPriceList</a></span>, <span class='object_link'><a href="TCGPlayerSDK/ResponseStruct.html" title="TCGPlayerSDK::ResponseStruct (class)">ResponseStruct</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="TCGPlayerSDK/BearerToken.html" title="TCGPlayerSDK::BearerToken (class)">BearerToken</a></span>, <span class='object_link'><a href="TCGPlayerSDK/Manifest.html" title="TCGPlayerSDK::Manifest (class)">Manifest</a></span>, <span class='object_link'><a href="TCGPlayerSDK/Pokemon.html" title="TCGPlayerSDK::Pokemon (class)">Pokemon</a></span>, <span class='object_link'><a href="TCGPlayerSDK/ProductPrice.html" title="TCGPlayerSDK::ProductPrice (class)">ProductPrice</a></span>, <span class='object_link'><a href="TCGPlayerSDK/ProductPriceList.html" title="TCGPlayerSDK::ProductPriceList (class)">ProductPriceList</a></span>, <span class='object_link'><a href="TCGPlayerSDK/ResponseStruct.html" title="TCGPlayerSDK::ResponseStruct (class)">ResponseStruct</a></span>
     
   
 </p>
@@ -484,6 +484,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>A new instance of TCGPlayerSDK.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_details-instance_method" title="#product_details (instance method)">#<strong>product_details</strong>(_ids, params = {})  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p><a href="https://docs.tcgplayer.com/reference/catalog_getproduct-1">docs.tcgplayer.com/reference/catalog_getproduct-1</a>.</p>
 </div></span>
   
 </li>
@@ -1192,7 +1216,7 @@
       <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/tcg_player_sdk.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_category_search_manifest'>category_search_manifest</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#CATEGORIES_URL-constant" title="TCGPlayerSDK::CATEGORIES_URL (constant)">CATEGORIES_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/search/manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="TCGPlayerSDK/Manifest.html" title="TCGPlayerSDK::Manifest (class)">Manifest</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCGPlayerSDK/Manifest.html#initialize-instance_method" title="TCGPlayerSDK::Manifest#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#CATEGORIES_URL-constant" title="TCGPlayerSDK::CATEGORIES_URL (constant)">CATEGORIES_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/search/manifest</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1217,7 +1241,76 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The category ID to search through</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Put your additional search terms here:</p>
+<ul><li>
+<p>sort: One of the available sort filters see manifest.results.first.sorting</p>
+</li><li>
+<p>limit: Cap the number of results to this limit</p>
+</li><li>
+<p>offset: Used with :limit to return a limited number of results in an arbitrary location.  i.e. for pagination</p>
+</li><li>
+<p><a href="Array<Hash>“>filters</a> An array of filters as described by manifest.results.first.filters.  Use the following format for Hash in the filters array</p>
+<ul><li>
+<p><a href="String">name</a>: Name of one of the filters from the manifest</p>
+</li><li>
+<p><a href="Array<String>“>values</a>: Specify which values to filter on</p>
+</li></ul>
+</li></ul>
+
+<p>params = {</p>
+
+<pre class="code ruby"><code class="ruby">sort: &#39;ProductName ASC&#39;,
+limit: 10,
+offset: 0,
+filters: [ {
+  name: &#39;ProductName&#39;,
+  values: [&#39;Alakazam&#39;]
+}]
+</code></pre>
+
+<p>}</p>
+
+<p>results = tcg.category_search_products(3, params) results.results #=&gt; [42444, 42346, 83496, 106996, 83501, 83499, 83497, 83500, 83498, 180715]</p>
+
+<p># Do something with each product ID… will automatically fetch new results all_ids = results.map{|r| r} #=&gt; [42444, 42346, 83496, 106996, 83501, 83499, 83497, 83500, 83498, 180715, 83503, 83504, 117512, 117889, 117896, 117863, 83502, 226606, 228981, 228980, 228979, 251560, 84559, 84560, 118332, 117515, 117890, 88866]</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -1238,17 +1331,60 @@
       <pre class="lines">
 
 
-124
-125
-126
-127</pre>
+149
+150
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/tcg_player_sdk.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/tcg_player_sdk.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_category_search_products'>category_search_products</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_search_params'>search_params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>post:</span> <span class='kw'>true</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#CATEGORIES_URL-constant" title="TCGPlayerSDK::CATEGORIES_URL (constant)">CATEGORIES_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/search</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_search_params'>search_params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="product_details-instance_method">
+  
+    #<strong>product_details</strong>(_ids, params = {})  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p><a href="https://docs.tcgplayer.com/reference/catalog_getproduct-1">docs.tcgplayer.com/reference/catalog_getproduct-1</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/tcg_player_sdk.rb', line 157</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_product_details'>product_details</span><span class='lparen'>(</span><span class='id identifier rubyid__ids'>_ids</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='id identifier rubyid_id_list'>id_list</span><span class='lparen'>(</span><span class='id identifier rubyid__ids'>_ids</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#CATALOG_URL-constant" title="TCGPlayerSDK::CATALOG_URL (constant)">CATALOG_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/products/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ids'>ids</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1278,7 +1414,7 @@
   
     <li>
       
-        <span class='name'>ids</span>
+        <span class='name'>_ids</span>
       
       
         <span class='type'></span>
@@ -1314,16 +1450,16 @@
       <pre class="lines">
 
 
-138
-139
-140
-141</pre>
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/tcg_player_sdk.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/tcg_player_sdk.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_product_pricing'>product_pricing</span><span class='lparen'>(</span><span class='id identifier rubyid__ids'>_ids</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='id identifier rubyid__ids'>_ids</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid__ids'>_ids</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid__ids'>_ids</span>
+  <span class='id identifier rubyid_ids'>ids</span> <span class='op'>=</span> <span class='id identifier rubyid_id_list'>id_list</span><span class='lparen'>(</span><span class='id identifier rubyid__ids'>_ids</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="" title="TCGPlayerSDK (class)">TCGPlayerSDK</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="TCGPlayerSDK/ProductPriceList.html" title="TCGPlayerSDK::ProductPriceList (class)">ProductPriceList</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCGPlayerSDK/ProductPriceList.html#initialize-instance_method" title="TCGPlayerSDK::ProductPriceList#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#PRICING_URL-constant" title="TCGPlayerSDK::PRICING_URL (constant)">PRICING_URL</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/product/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_ids'>ids</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1473,7 +1609,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 23 16:21:07 2022 by
+  Generated on Fri Feb 25 14:45:03 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

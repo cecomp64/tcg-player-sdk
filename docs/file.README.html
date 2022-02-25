@@ -60,95 +60,241 @@
       <div id="content"><div id='filecontents'>
 <h1 id="label-TCG+Player+SDK">TCG Player SDK</h1>
 
-<pre class="code ruby"><code class="ruby">2.7.1 : 002 &gt; tcg = TCGPlayerSDK.new
-2.7.1 : 003 &gt; tcg.authorize
+<p>GitHub: <a href="https://github.com/cecomp64/tcg-player-sdk">github.com/cecomp64/tcg-player-sdk</a></p>
 
-2.7.1 : 011 &gt; pika = TCGPlayerSDK::Pokemon.new tcg
-2.7.1 : 014 &gt; pika.category
+<p>Documentation: <a href="https://cecomp64.github.io/tcg-player-sdk">cecomp64.github.io/tcg-player-sdk</a>/</p>
 
-D, [2022 - 02 - 15 T15 : 15 : 51.969843 #10721] DEBUG -- : Query: https://api.tcgplayer.com/catalog/categories params: 
-D, [2022 - 02 - 15 T15 : 15 : 51.969977 #10721] DEBUG -- : {
-:limit =&gt; 100
-}
-TCGPlayerSDK::ResponseStruct {
-  :categoryId =&gt; 3,
-    :name =&gt; &quot;Pokemon&quot;,
-    :modifiedOn =&gt; &quot;2022-02-15T21:55:12.807&quot;,
-    :displayName =&gt; &quot;Pokemon&quot;,
-    :seoCategoryName =&gt; &quot;Pokemon&quot;,
-    :sealedLabel =&gt; &quot;Sealed Products&quot;,
-    :nonSealedLabel =&gt; &quot;Single Cards&quot;,
-    :conditionGuideUrl =&gt; &quot;https://store.tcgplayer.com/help/cardconditionguide&quot;,
-    :isScannable =&gt; true,
-    :popularity =&gt; 576635,
-    :isDirect =&gt; true
-}
+<h1 id="label-Installation">Installation</h1>
 
-2.7.1 : 039 &gt; mani = pika.manifest
-2.7.1 : 038 &gt; mani.to_h.keys
-[
-  [0] : success,
-  [1] : errors,
-  [2] : results,
-  [3] : base_query,
-  [4] : http_response,
-  [5] : tcg_object
-]
+<p>Via bundler: <code>ruby gem &#39;tcg-player-sdk&#39; </code></p>
 
-2.7.1 : 045 &gt; mani.results.first.keys
-[
-  [0] : sorting,
-  [1] : filters,
-  [2] : keys
-]
-2.7.1 : 046 &gt; mani.results.first.sorting
-[
-  [0] TCGPlayerSDK::ResponseStruct {
-  :text =&gt; &quot;A-Z&quot;,
-    :value =&gt; &quot;ProductName ASC&quot;
-},
-  [1] TCGPlayerSDK::ResponseStruct {
-  :text =&gt; &quot;Price: High to Low&quot;,
-    :value =&gt; &quot;MinPrice DESC&quot;
-},
-  [2] TCGPlayerSDK::ResponseStruct {
-  :text =&gt; &quot;Price: Low to High&quot;,
-    :value =&gt; &quot;MinPrice ASC&quot;
-},
-  [3] TCGPlayerSDK::ResponseStruct {
-  :text =&gt; &quot;Relevance&quot;,
-    :value =&gt; &quot;Relevance&quot;
-},
-  [4] TCGPlayerSDK::ResponseStruct {
-  :text =&gt; &quot;Best Selling&quot;,
-    :value =&gt; &quot;Sales DESC&quot;
-}
-]
+<p>Via RubyGems: <code>shell gem install &#39;tcg-player-sdk&#39; </code></p>
 
-2.7.1 : 052 &gt; mani.results.first.filters.map(&amp;:name)
-[
-  [0] &quot;ProductName&quot;,
-  [1] &quot;CardText&quot;,
-  [2] &quot;SetName&quot;,
-  [3] &quot;Rarity&quot;,
-  [4] &quot;HP&quot;,
-  [5] &quot;EnergyType&quot;,
-  [6] &quot;CardType&quot;,
-  [7] &quot;RetreatCost&quot;,
-  [8] &quot;Price&quot;
-]
+<h1 id="label-Instantiation+and+Authorization">Instantiation and Authorization</h1>
 
-sets = mani.results.first.filters.select { |f| f.name == &#39;SetName&#39; }
+<p>TCGPlayerSDK can be instantiated with an optional user agent and require public and private keys. Keys can come from environment variables, or be passed in to the constructor. TCGPlayer.com typically asks users to use a consistent agent id so they can track your usage.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># Authorization is done automatically, and will use ENV[&#39;TCG_PLAYER_API_PUBLIC_KEY&#39;] and
+</span><span class='comment'># ENV[&#39;TCG_PLAYER_API_PRIVATE_KEY&#39;] if not otherwise specified
+</span><span class='id identifier rubyid_tcg'>tcg</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TCGPlayerSDK.html" title="TCGPlayerSDK (class)">TCGPlayerSDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCGPlayerSDK.html#initialize-instance_method" title="TCGPlayerSDK#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>user_agent:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Your-User-Agent-Identifier</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='comment'># Otherwise, specify your public and private keys during initialization
+</span><span class='id identifier rubyid_tcg'>tcg</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TCGPlayerSDK.html" title="TCGPlayerSDK (class)">TCGPlayerSDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCGPlayerSDK.html#initialize-instance_method" title="TCGPlayerSDK#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>user_agent:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Your-User-Agent-Identifier</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>public_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>private_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 </code></pre>
 
-<h2 id="label-Tests">Tests</h2>
+<h1 id="label-Categories">Categories</h1>
+
+<p>List categories with the <code>#categories</code> function. See <a href="https://cecomp64.github.io/tcg-player-sdk/">the docs</a> for full details.</p>
+
+<pre class="code ruby"><code class="ruby">categories = tcg.categories
+ap categories
+
+# Sample response
+TCGPlayerSDK::ResponseStruct {
+  :totalItems =&gt; 67,
+    :success =&gt; true,
+    :errors =&gt; [],
+    :results =&gt; [
+      [0] {
+      &quot;categoryId&quot; =&gt; 64,
+      &quot;name&quot; =&gt; &quot;Alternate Souls&quot;,
+      &quot;modifiedOn&quot; =&gt; &quot;2020-10-14T20:08:31.777&quot;,
+      &quot;displayName&quot; =&gt; &quot;Alternate Souls&quot;,
+      &quot;seoCategoryName&quot; =&gt; &quot;Alternate Souls&quot;,
+      &quot;sealedLabel&quot; =&gt; &quot;Sealed Products&quot;,
+      &quot;nonSealedLabel&quot; =&gt; &quot;Cards&quot;,
+      &quot;conditionGuideUrl&quot; =&gt; &quot;https://store.tcgplayer.com/&quot;,
+      &quot;isScannable&quot; =&gt; false,
+      &quot;popularity&quot; =&gt; 0,
+      &quot;isDirect&quot; =&gt; false
+    },
+      [1] {
+      &quot;categoryId&quot; =&gt; 55,
+      &quot;name&quot; =&gt; &quot;Architect TCG&quot;,
+      &quot;modifiedOn&quot; =&gt; &quot;2021-10-11T21:26:34.46&quot;,
+      &quot;displayName&quot; =&gt; &quot;Architect TCG&quot;,
+      &quot;seoCategoryName&quot; =&gt; &quot;Architect TCG&quot;,
+      &quot;sealedLabel&quot; =&gt; &quot;Sealed Products&quot;,
+      &quot;nonSealedLabel&quot; =&gt; &quot;Singles&quot;,
+      &quot;conditionGuideUrl&quot; =&gt; &quot;https://store.tcgplayer.com/&quot;,
+      &quot;isScannable&quot; =&gt; true,
+      &quot;popularity&quot; =&gt; 0,
+      &quot;isDirect&quot; =&gt; false
+    },
+      [2] {
+      &quot;categoryId&quot; =&gt; 61,
+      &quot;name&quot; =&gt; &quot;Argent Saga TCG&quot;,
+      &quot;modifiedOn&quot; =&gt; &quot;2021-07-29T19:36:19.103&quot;,
+      &quot;displayName&quot; =&gt; &quot;Argent Saga TCG&quot;,
+      &quot;seoCategoryName&quot; =&gt; &quot;Argent Saga TCG&quot;,
+      &quot;sealedLabel&quot; =&gt; &quot;Sealed Products&quot;,
+      &quot;nonSealedLabel&quot; =&gt; &quot;Cards&quot;,
+      &quot;conditionGuideUrl&quot; =&gt; &quot;https://store.tcgplayer.com/&quot;,
+      &quot;isScannable&quot; =&gt; true,
+      &quot;popularity&quot; =&gt; 0,
+      &quot;isDirect&quot; =&gt; false
+    },
+      # ...
+    ],
+    :base_query =&gt; {
+      :url =&gt; &quot;https://api.tcgplayer.com/catalog/categories&quot;,
+      :params =&gt; {
+      :noretry =&gt; true
+    }
+    },
+    :http_response =&gt; nil, # Not actually, nil, just for completeness
+      :tcg_object =&gt;  nil, # ...
+}
+</code></pre>
+
+<h1 id="label-ResponseStruct">ResponseStruct</h1>
+
+<p>Now is probably a good time to discuss the responses that the API returns. In most cases, responses from the TCGPlayer endpoints are returned as a wrapper around <code>OpenStruct</code> which we call <code>ResponseStruct</code>. This allows for direct access to the JSON response from the API. It also gives us a good place to implement convenience functions and helpers.</p>
+
+<p>Take the categories returned above, for example. By default, requests that specify no limit return up to 10 items (most tcg-player-sdk functions allow for an optional paramters hash which can be used to specify your own limit or any other parameters for the endpoint. See See <a href="https://cecomp64.github.io/tcg-player-sdk/">the docs</a>).</p>
+
+<p>But, let&#39;s say that you want to iterate over all the categories, and not have to guess how many there are in the first place, just so you can make more queries and keep track of your offsets, and … yuck. Lucky for you, <code>ResponseStruct</code> implements <code>Enumerable</code>, and will iterate over any reponse&#39;s <code>results</code> array, and automatically fetch additional results if the number of available results is less than the total number of results.</p>
+
+<p>You can iterate over all the results, and use any enumerable function, without worrying about setting the proper limits and re-querying like so:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_categories'>categories</span> <span class='op'>=</span> <span class='id identifier rubyid_tcg'>tcg</span><span class='period'>.</span><span class='id identifier rubyid_categories'>categories</span>
+
+<span class='comment'># Now do some Enumerable things, and they will operate on the full set of results
+</span><span class='comment'># 
+</span><span class='comment'># Let&#39;s see all the &quot;Magic&quot; categories
+</span><span class='id identifier rubyid_categories'>categories</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_c'>c</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>Magic</span><span class='regexp_end'>/</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># Or, print them all out why not
+</span><span class='id identifier rubyid_categories'>categories</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_ap'>ap</span> <span class='id identifier rubyid_c'>c</span><span class='rbrace'>}</span>
+
+<span class='comment'># If you really did want just the results returned from your query, honoring your limit
+</span><span class='comment'># you can always access them directly
+</span><span class='id identifier rubyid_categories'>categories</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='comment'># =&gt; 10
+</span>
+<span class='comment'># Just to reiterate, Enumerable methods will iterate over ALL results, even the onese not yet returned
+</span><span class='id identifier rubyid_categories'>categories</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+=</span> <span class='int'>1</span><span class='rbrace'>}</span> <span class='comment'># =&gt; 67
+</span></code></pre>
+
+<p>The <code>ResponseStruct</code> always also contains a reference to the <code>tcg_object</code> that created this <code>ResponseStruct</code>, and a reference to the original, unmodified <code>http_response</code> and <code>base_query</code></p>
+
+<p>Finally, everything else in the <code>ResponseStruct</code> can be accessed as any <code>OpenStruct</code>. Oh, and did I mention it is recursive? All hashes within a <code>ResponseStruct</code> will be treated as their own <code>ResponseStruct</code>. So, you can method-chain to your heart&#39;s content</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_categories'>categories</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='comment'># =&gt; &quot;Alternate Souls&quot;
+</span></code></pre>
+
+<h1 id="label-Search+Products">Search Products</h1>
+
+<p>First step in doing anything interesting is usually getting one or more Product IDs. A good way to do this is wth the search categories endpoint. To do this, you&#39;ll want to inspect the search manifest to figure out what filters and sorting options are available. See <a href="https://cecomp64.github.io/tcg-player-sdk/">the docs</a> for full details, but here&#39;s an example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_manifest'>manifest</span> <span class='op'>=</span> <span class='id identifier rubyid_tcg'>tcg</span><span class='period'>.</span><span class='id identifier rubyid_category_search_manifest'>category_search_manifest</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='comment'># Good ol&#39; &quot;Category Three&quot;
+</span>
+<span class='comment'># Sorting and Filters accessors fast-forward you to the useful information
+</span><span class='id identifier rubyid_manifest'>manifest</span><span class='period'>.</span><span class='id identifier rubyid_sorting'>sorting</span>
+<span class='comment'># =&gt; [#&lt;TCGPlayerSDK::ResponseStruct text=&quot;A-Z&quot;, value=&quot;ProductName ASC&quot;&gt;, #&lt;TCGPlayerSDK::ResponseStruct text=&quot;Price: High to Low&quot;, value=&quot;MinPrice DESC&quot;&gt;, #&lt;TCGPlayerSDK::ResponseStruct text=&quot;Price: Low to High&quot;, value=&quot;MinPrice ASC&quot;&gt;, #&lt;TCGPlayerSDK::ResponseStruct text=&quot;Relevance&quot;, value=&quot;Relevance&quot;&gt;, #&lt;TCGPlayerSDK::ResponseStruct text=&quot;Best Selling&quot;, value=&quot;Sales DESC&quot;&gt;]
+</span>
+<span class='id identifier rubyid_manifest'>manifest</span><span class='period'>.</span><span class='id identifier rubyid_filters'>filters</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='comment'># =&gt; 9
+</span><span class='id identifier rubyid_manifest'>manifest</span><span class='period'>.</span><span class='id identifier rubyid_filters'>filters</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+<span class='comment'>#  =&gt; #&lt;TCGPlayerSDK::ResponseStruct name=&quot;ProductName&quot;, displayName=&quot;Product Name&quot;, inputType=&quot;Text&quot;, items=[]&gt; 
+</span>
+<span class='comment'># Let&#39;s craft some search parameters now
+</span><span class='id identifier rubyid_search_params'>search_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='label'>sort:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ProductName ASC</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='int'>10</span><span class='comma'>,</span>
+  <span class='label'>offset:</span> <span class='int'>0</span><span class='comma'>,</span>
+  <span class='label'>filters:</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span>
+               <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ProductName</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+               <span class='label'>values:</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Alakazam</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+             <span class='rbrace'>}</span><span class='rbracket'>]</span>
+<span class='rbrace'>}</span>
+
+<span class='id identifier rubyid_search_results'>search_results</span> <span class='op'>=</span> <span class='id identifier rubyid_tcg'>tcg</span><span class='period'>.</span><span class='id identifier rubyid_category_search_products'>category_search_products</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='id identifier rubyid_search_params'>search_params</span><span class='rparen'>)</span>
+
+<span class='comment'># Show the results, honoring the input limit
+</span><span class='id identifier rubyid_search_results'>search_results</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span> <span class='comment'># =&gt;  [42444, 106996, 42346, 83496, 83501, 83499, 83497, 83500, 83498, 180715]
+</span>
+<span class='comment'># Or, go do useful stuff on the full set of results
+</span><span class='id identifier rubyid_search_results'>search_results</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pid'>pid</span><span class='op'>|</span>
+  <span class='comment'># Do something interesting on a per-product id basis
+</span><span class='kw'>end</span>
+</code></pre>
+
+<h1 id="label-Product+Detail+and+Product+Pricing">Product Detail and Product Pricing</h1>
+
+<p>After all that hard work (hopefully made easier with this SDK), you&#39;ve finally got yourself a nice, juicy list of Product IDs.</p>
+
+<p>Now what?</p>
+
+<p>Well, you probably want to know what the IDs actually represent (Product Details), and FINALLY what the pricing is for those products (that IS why we&#39;re here, isn&#39;t it!?).</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># Using the search results above, which return an array of product ids
+</span><span class='id identifier rubyid_all_ids'>all_ids</span> <span class='op'>=</span> <span class='id identifier rubyid_search_results'>search_results</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
+<span class='id identifier rubyid_details'>details</span> <span class='op'>=</span> <span class='id identifier rubyid_tcg'>tcg</span><span class='period'>.</span><span class='id identifier rubyid_product_details'>product_details</span><span class='lparen'>(</span><span class='id identifier rubyid_all_ids'>all_ids</span><span class='rparen'>)</span>
+
+<span class='comment'># These results are not subject to &quot;LIMITS&quot; Ha!
+</span><span class='id identifier rubyid_ap'>ap</span> <span class='id identifier rubyid_details'>details</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+<span class='comment'># =&gt;
+</span><span class='comment'># TCGPlayerSDK::ResponseStruct {
+</span><span class='comment'># :productId =&gt; 42346,
+</span><span class='comment'>#   :name =&gt; &quot;Alakazam&quot;,
+</span><span class='comment'>#   :cleanName =&gt; &quot;Alakazam&quot;,
+</span><span class='comment'>#   :imageUrl =&gt; &quot;https://tcgplayer-cdn.tcgplayer.com/product/42346_200w.jpg&quot;,
+</span><span class='comment'>#   :categoryId =&gt; 3,
+</span><span class='comment'>#   :groupId =&gt; 604,
+</span><span class='comment'>#   :url =&gt; &quot;https://www.tcgplayer.com/product/42346/pokemon-base-set-alakazam&quot;,
+</span><span class='comment'>#   :modifiedOn =&gt; &quot;2021-10-07T12:55:24.89&quot;
+</span><span class='comment'># }
+</span>
+<span class='comment'># Of course that has all the details EXCEPT pricing, so... let&#39;s talk pricing
+</span><span class='comment'># pricing gets its own object :D
+</span><span class='id identifier rubyid_pricelist'>pricelist</span> <span class='op'>=</span> <span class='id identifier rubyid_tcg'>tcg</span><span class='period'>.</span><span class='id identifier rubyid_product_pricing'>product_pricing</span><span class='lparen'>(</span><span class='id identifier rubyid_all_ids'>all_ids</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_pricelist'>pricelist</span><span class='period'>.</span><span class='id identifier rubyid_prices'>prices</span> <span class='comment'># These are prices grouped by productId
+</span><span class='comment'># =&gt; {42444=&gt;[#&lt;TCGPlayerSDK::ProductPrice productId=42444, lowPrice=nil, midPrice=nil, highPrice=nil, marketPrice=nil, directLowPrice=nil, subTypeName=&quot;Normal&quot;&gt;, #&lt;TCGPlayerSDK::ProductPrice productId=42444, lowPrice=10.0, midPrice=19.99, highPrice=159.99, marketPrice=21.88, directLowPrice=19.99, subTypeName=&quot;Holofoil&quot;&gt;, ...}
+</span>
+<span class='comment'># You may notice that you get many &quot;empty&quot; subtypes, so maybe you want just the &quot;non-empty&quot; or &quot;valid&quot; subtypes:
+</span><span class='id identifier rubyid_pricelist'>pricelist</span><span class='period'>.</span><span class='id identifier rubyid_valid_prices'>valid_prices</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='comment'># =&gt; 39
+</span><span class='id identifier rubyid_pricelist'>pricelist</span><span class='period'>.</span><span class='id identifier rubyid_prices'>prices</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='comment'># =&gt; 196 (yuck)
+</span>
+<span class='comment'># Finally, there&#39;s a ResponseStruct waiting for you
+</span><span class='id identifier rubyid_ap'>ap</span> <span class='id identifier rubyid_pricelist'>pricelist</span><span class='period'>.</span><span class='id identifier rubyid_valid_prices'>valid_prices</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+<span class='comment'># =&gt;
+</span><span class='comment'># TCGPlayerSDK::ProductPrice {
+</span><span class='comment'># :productId =&gt; 42444,
+</span><span class='comment'>#   :lowPrice =&gt; 10.0,
+</span><span class='comment'>#   :midPrice =&gt; 19.99,
+</span><span class='comment'>#   :highPrice =&gt; 159.99,
+</span><span class='comment'>#   :marketPrice =&gt; 21.88,
+</span><span class='comment'>#   :directLowPrice =&gt; 19.99,
+</span><span class='comment'>#   :subTypeName =&gt; &quot;Holofoil&quot;
+</span><span class='comment'># }
+</span>
+<span class='comment'># Ofcourse, pricelist is also a ResponseStruct, so take a look at the original response yourself
+</span><span class='id identifier rubyid_pricelist'>pricelist</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span> <span class='comment'># =&gt; true (obviously)
+</span></code></pre>
+
+<p>As always… See <a href="https://cecomp64.github.io/tcg-player-sdk/">the docs</a> for full details.</p>
+
+<h1 id="label-Testing">Testing</h1>
+
+<p>Yes, there are tests! Run them via Rake:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_test'>test</span>
+</code></pre>
+
+<p>Some tests will require you to set a valid public and private key. Others do not. Such is life.</p>
+
+<p>We use <code>VCR</code> to record and replay http requests, so if you add new tests or update tests that end up making new or different http requests, your tests will fail. Please reset the cached responses with this command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_reset_fixtures'>reset_fixtures</span>
+</code></pre>
+
+<p>Then, re-running the tests will re-generate new traces.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_test'>test</span>
 </code></pre>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Feb 23 16:21:07 2022 by
+  Generated on Fri Feb 25 14:45:03 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

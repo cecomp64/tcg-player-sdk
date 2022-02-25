@@ -297,6 +297,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sorting-instance_method" title="#sorting (instance method)">#<strong>sorting</strong>  &#x21d2; Array&lt;TCGPlayerSDK::ResponseStruct&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>the available ways to sort search data.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -526,12 +550,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/pokemon.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/pokemon.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set'>set</span><span class='lparen'>(</span><span class='id identifier rubyid_set_name'>set_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sets'>sets</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span> <span class='op'>==</span> <span class='id identifier rubyid_set_name'>set_name</span><span class='rbrace'>}</span>
@@ -582,12 +606,71 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="sorting-instance_method">
+  
+    #<strong>sorting</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="ResponseStruct.html" title="TCGPlayerSDK::ResponseStruct (class)">TCGPlayerSDK::ResponseStruct</a></span>&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>the available ways to sort search data.  Set :sort in your search parameters to one of the returned :value</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="ResponseStruct.html" title="TCGPlayerSDK::ResponseStruct (class)">TCGPlayerSDK::ResponseStruct</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Response struct with keys :value and :text, which correspond to</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/pokemon.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sorting'>sorting</span>
+  <span class='ivar'>@sorting</span> <span class='op'>||=</span> <span class='ivar'>@manifest</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_sorting'>sorting</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 23 16:21:07 2022 by
+  Generated on Fri Feb 25 14:45:03 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>
