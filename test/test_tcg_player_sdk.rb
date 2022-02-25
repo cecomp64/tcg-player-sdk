@@ -18,7 +18,7 @@ class TCGPlayerAPITest < Minitest::Test
   def test_invalid_bearer_token_response
     VCR.use_cassette('test_invalid_bearer_token_response') do
       tcg = TCGPlayerSDK.new(bearer_token: invalid_bearer_token, noretry: true)
-      response = tcg.product_pricing(83543).response
+      response = tcg.product_pricing(83543)
 
       # Check that there is one error, and that it is about the bearer token
       assert_equal response.success, false
@@ -50,7 +50,7 @@ class TCGPlayerAPITest < Minitest::Test
       assert_instance_of TCGPlayerSDK::ProductPriceList, pl
 
       assert_equal pl.prices.keys.size, 2
-      refute_nil pl.response
+      assert pl.success
 
       pl.prices.each do |key, ppl|
         assert_includes ids, key
@@ -77,9 +77,43 @@ class TCGPlayerAPITest < Minitest::Test
     end
   end
 
+  def test_category_product_search
+    VCR.use_cassette('test_category_product_search') do
+      tcg = TCGPlayerSDK.new(bearer_token: valid_bearer_token)
+      pokemon_category_id = 3
+
+      # Look for my buddy, Alakazam
+      params = {
+        sort: 'ProductName ASC',
+        limit: 10,
+        offset: 0,
+        filters: [ {
+          name: 'ProductName',
+          values: ['Alakazam']
+        }]
+      }
+
+      results = tcg.category_search_products(pokemon_category_id, params)
+
+      # Little bit of a response struct test, too... oh well
+      assert_equal results.first, 42444
+      assert_equal results.results.size, 10 # At least 10, our limit
+    end
+  end
+
+  def test_product_details
+    VCR.use_cassette('test_product_details') do
+      ids = [42444, 42346, 83496, 106996, 83501, 83499, 83497, 83500, 83498, 180715, 83503, 83504, 117512, 117889, 117896, 117863, 83502, 226606, 228981, 228980, 228979, 251560, 84559, 84560, 118332, 117515, 117890, 88866]
+      tcg = TCGPlayerSDK.new(bearer_token: valid_bearer_token)
+      results = tcg.product_details(ids)
+
+      assert results.results.size, ids.size
+    end
+  end
+
   private
   def sample_successful_query(tcg)
-    response = tcg.product_pricing(83543).response
+    response = tcg.product_pricing(83543)
     assert_equal response.success, true
     assert_equal response.errors.size, 0
   end

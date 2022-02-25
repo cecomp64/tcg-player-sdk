@@ -1,6 +1,12 @@
 require 'yard'
 require 'rake/testtask'
 
+
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../test', __FILE__)
+
+require 'tcg_api_factory'
+
 YARD::Rake::YardocTask.new do |t|
   t.files   = ['./lib/tcg-player-sdk.rb'] + Dir.glob('./lib/tcg-player-sdk/*')
   t.options = ['-o', 'docs']
@@ -33,3 +39,19 @@ end
 
 desc "Run tests"
 task :default => :test
+
+desc "Reset test data"
+task :reset_fixtures, [] do |task, args|
+  # Clear out VCR fixtures
+  files = Dir.glob('test/fixtures/*')
+  files.each do |f|
+    puts "[I] Deleting fixture: #{f}"
+    File.delete(f)
+  end
+
+  # Overwrite bearer token with new value
+  tcg = TCGPlayerSDK.new
+  tcg.authorize
+  File.open(TCGApiFactory::BEARER_TOKEN_FILE, 'w'){|f| f.write(tcg.bearer_token.to_json)}
+  puts "[I] Wrote new bearer token: #{tcg.bearer_token.to_json}"
+end

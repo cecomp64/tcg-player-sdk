@@ -115,10 +115,35 @@ class TCGPlayerSDK
   #
   # @return [TCGPlayerSDK::ResponseStruct]
   def category_search_manifest(id)
-    query("#{CATEGORIES_URL}/#{id}/search/manifest")
+    Manifest.new(query("#{CATEGORIES_URL}/#{id}/search/manifest"))
   end
 
   # https://docs.tcgplayer.com/reference/catalog_searchcategory
+  #
+  # @param id[String] The category ID to search through
+  # @param params[Hash] Put your additional search terms here:
+  #   - sort: One of the available sort filters see manifest.results.first.sorting
+  #   - limit: Cap the number of results to this limit
+  #   - offset: Used with :limit to return a limited number of results in an arbitrary location.  i.e. for pagination
+  #   - filters[Array<Hash>] An array of filters as described by manifest.results.first.filters.  Use the following format for Hash in the filters array
+  #     - name[String]: Name of one of the filters from the manifest
+  #     - values[Array<String>]: Specify which values to filter on
+  #
+  #   params = {
+  #     sort: 'ProductName ASC',
+  #     limit: 10,
+  #     offset: 0,
+  #     filters: [ {
+  #       name: 'ProductName',
+  #       values: ['Alakazam']
+  #     }]
+  #   }
+  #
+  #   results = tcg.category_search_products(3, params)
+  #   results.results #=> [42444, 42346, 83496, 106996, 83501, 83499, 83497, 83500, 83498, 180715]
+  #
+  #   # Do something with each product ID... will automatically fetch new results
+  #   all_ids = results.map{|r| r} #=> [42444, 42346, 83496, 106996, 83501, 83499, 83497, 83500, 83498, 180715, 83503, 83504, 117512, 117889, 117896, 117863, 83502, 226606, 228981, 228980, 228979, 251560, 84559, 84560, 118332, 117515, 117890, 88866]
   #
   # @return [TCGPlayerSDK::ResponseStruct]
   def category_search_products(id, params = {})
@@ -126,17 +151,32 @@ class TCGPlayerSDK
     query("#{CATEGORIES_URL}/#{id}/search", search_params)
   end
 
-  #def product_details(pids, params = {})
-  #  query("#{CATEGORIES_URL}/#{id}/search", search_params)
-  #end
+  ##
+  # https://docs.tcgplayer.com/reference/catalog_getproduct-1
+  #
+  def product_details(_ids, params = {})
+    ids = id_list(_ids)
+    query("#{CATALOG_URL}/products/#{ids}", params)
+  end
 
   ##
   # Accessor to https://docs.tcgplayer.com/reference/pricing_getproductprices-1
   #
-  # @param ids An array of product IDs to query
+  # @param _ids An array of product IDs to query
   # @return [TCGPlayerSDK::ProductPriceList]
   def product_pricing(_ids)
-    ids = _ids.is_a?(Array) ? _ids.join(',') : _ids
+    ids = id_list(_ids)
     TCGPlayerSDK::ProductPriceList.new(query("#{PRICING_URL}/product/#{ids}"))
+  end
+
+  private
+
+  ##
+  # Sanitize an array or string of ids to be compatible with the comma-separated values that the API expects
+  #
+  # @param value Accepts either an Array or String to convert to the API-friendly formatting
+  # @return [String] ids separated by comma
+  def id_list(value)
+    value.is_a?(Array) ? value.join(',') : value
   end
 end

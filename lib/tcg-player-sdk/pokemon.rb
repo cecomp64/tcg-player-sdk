@@ -26,6 +26,13 @@ class TCGPlayerSDK::Pokemon
   end
 
   ##
+  # @return [Array<TCGPlayerSDK::ResponseStruct>] Response struct with keys :value and :text, which correspond to
+  # the available ways to sort search data.  Set :sort in your search parameters to one of the returned :value
+  def sorting
+    @sorting ||= @manifest.results.first.sorting
+  end
+
+  ##
   # Returns the TCGPlayerSDK filter item corresponding to the input set
   #
   #   pokemon.set('Base Set')

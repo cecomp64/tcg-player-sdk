@@ -8,4 +8,5 @@ require 'tcg-player-sdk/bearer_token'
 require 'tcg-player-sdk/response_struct'
 require 'tcg-player-sdk/product_price_list'
 require 'tcg-player-sdk/pokemon'
+require 'tcg-player-sdk/manifest'
 

@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tcgplayer.com/catalog/products/42444,42346,83496,106996,83501,83499,83497,83500,83498,180715,83503,83504,117512,117889,117896,117863,83502,226606,228981,228980,228979,251560,84559,84560,118332,117515,117890,88866
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - bearer IlGJZc-FZ0X3cWz-5sad9NHuqnr_RY5wZgVAf8rbMJa09V7e-wwj8VJWt7Q0j936TVmKVfUhxNpjTYzsZKni33a_5TzdSxSJgjEsSBf3nNG23m0ex2krog4anRhYEnU6X03DsppBhqTQuZplIM7gzKRiqO4TLQVFpBxQe92mCc6lSRFv4-6HwJJBuT8WPzWH_ppYHejQPnPVN0bCFTjOBQUbyKv_btXEQgP0rK2d40Ek8iN9sK9u31sS5Ut1G0zQcU6ENK0a3-HAZjxtY6q2WeDO2Rv81uqUXOjBCwRLugllTMV1Hpzaoex7qEpk-zigq2cCfA
+      User-Agent:
+      - Unknown
+      Connection:
+      - close
+      Host:
+      - api.tcgplayer.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 25 Feb 2022 20:50:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '8663'
+      Connection:
+      - close
+      Set-Cookie:
+      - AWSALB=7vzs7mvZkdhLt6YSV1mdqrr5Se//2Tg+ooyZoKr4J3eF3XE6HyeMqb+DxegMebelplTEfAgVKOF343iho9kNUgkPstGr5lU3iMnGPhkJCoE3+4kHoRkIbHjG1w6E;
+        Expires=Fri, 04 Mar 2022 20:50:53 GMT; Path=/
+      - AWSALBCORS=7vzs7mvZkdhLt6YSV1mdqrr5Se//2Tg+ooyZoKr4J3eF3XE6HyeMqb+DxegMebelplTEfAgVKOF343iho9kNUgkPstGr5lU3iMnGPhkJCoE3+4kHoRkIbHjG1w6E;
+        Expires=Fri, 04 Mar 2022 20:50:53 GMT; Path=/; SameSite=None; Secure
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"errors":[],"results":[{"productId":42346,"name":"Alakazam","cleanName":"Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/42346_200w.jpg","categoryId":3,"groupId":604,"url":"https://www.tcgplayer.com/product/42346/pokemon-base-set-alakazam","modifiedOn":"2021-10-07T12:55:24.89"},{"productId":42444,"name":"Alakazam","cleanName":"Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/42444_200w.jpg","categoryId":3,"groupId":605,"url":"https://www.tcgplayer.com/product/42444/pokemon-base-set-2-alakazam","modifiedOn":"2015-10-06T14:28:03.23"},{"productId":83496,"name":"Alakazam","cleanName":"Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83496_200w.jpg","categoryId":3,"groupId":1374,"url":"https://www.tcgplayer.com/product/83496/pokemon-legendary-collection-alakazam","modifiedOn":"2015-06-18T16:00:12.69"},{"productId":83497,"name":"Alakazam
+        (1)","cleanName":"Alakazam 1","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83497_200w.jpg","categoryId":3,"groupId":1375,"url":"https://www.tcgplayer.com/product/83497/pokemon-expedition-alakazam-1","modifiedOn":"2015-06-09T12:11:16.44"},{"productId":83498,"name":"Alakazam
+        (H1)","cleanName":"Alakazam H1","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83498_200w.jpg","categoryId":3,"groupId":1372,"url":"https://www.tcgplayer.com/product/83498/pokemon-skyridge-alakazam-h1","modifiedOn":"2015-05-18T15:55:32.84"},{"productId":83499,"name":"Alakazam","cleanName":"Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83499_200w.jpg","categoryId":3,"groupId":1372,"url":"https://www.tcgplayer.com/product/83499/pokemon-skyridge-alakazam","modifiedOn":"2015-05-18T15:57:03.737"},{"productId":83500,"name":"Alakazam
+        (33)","cleanName":"Alakazam 33","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83500_200w.jpg","categoryId":3,"groupId":1375,"url":"https://www.tcgplayer.com/product/83500/pokemon-expedition-alakazam-33","modifiedOn":"2021-09-20T13:57:41.35"},{"productId":83501,"name":"Alakazam","cleanName":"Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83501_200w.jpg","categoryId":3,"groupId":1368,"url":"https://www.tcgplayer.com/product/83501/pokemon-mysterious-treasures-alakazam","modifiedOn":"2014-09-18T15:12:26.137"},{"productId":83502,"name":"Alakazam
+        Star","cleanName":"Alakazam Star","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83502_200w.jpg","categoryId":3,"groupId":1395,"url":"https://www.tcgplayer.com/product/83502/pokemon-crystal-guardians-alakazam-star","modifiedOn":"2015-03-25T13:03:16.993"},{"productId":83503,"name":"Alakazam
+        E4","cleanName":"Alakazam E4","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83503_200w.jpg","categoryId":3,"groupId":1367,"url":"https://www.tcgplayer.com/product/83503/pokemon-rising-rivals-alakazam-e4","modifiedOn":"2014-08-11T12:51:54.63"},{"productId":83504,"name":"Alakazam
+        E4 Lv.X","cleanName":"Alakazam E4 LvX","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/83504_200w.jpg","categoryId":3,"groupId":1367,"url":"https://www.tcgplayer.com/product/83504/pokemon-rising-rivals-alakazam-e4-lvx","modifiedOn":"2016-01-13T18:08:05.443"},{"productId":84559,"name":"Dark
+        Alakazam (1)","cleanName":"Dark Alakazam 1","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/84559_200w.jpg","categoryId":3,"groupId":1373,"url":"https://www.tcgplayer.com/product/84559/pokemon-team-rocket-dark-alakazam-1","modifiedOn":"2021-11-16T10:55:01.867"},{"productId":84560,"name":"Dark
+        Alakazam (18)","cleanName":"Dark Alakazam 18","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/84560_200w.jpg","categoryId":3,"groupId":1373,"url":"https://www.tcgplayer.com/product/84560/pokemon-team-rocket-dark-alakazam-18","modifiedOn":"2021-10-02T14:49:15.24"},{"productId":88866,"name":"Sabrina''s
+        Alakazam","cleanName":"Sabrinas Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/88866_200w.jpg","categoryId":3,"groupId":1440,"url":"https://www.tcgplayer.com/product/88866/pokemon-gym-challenge-sabrinas-alakazam","modifiedOn":"2021-12-30T12:24:39.207"},{"productId":106996,"name":"Alakazam","cleanName":"Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/106996_200w.jpg","categoryId":3,"groupId":1663,"url":"https://www.tcgplayer.com/product/106996/pokemon-base-set-shadowless-alakazam","modifiedOn":"2015-11-24T16:10:44.61"},{"productId":117512,"name":"Alakazam
+        EX","cleanName":"Alakazam EX","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/117512_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/117512/pokemon-xy-fates-collide-alakazam-ex","modifiedOn":"2021-11-06T20:10:24.877"},{"productId":117515,"name":"M
+        Alakazam EX","cleanName":"M Alakazam EX","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/117515_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/117515/pokemon-xy-fates-collide-m-alakazam-ex","modifiedOn":"2021-04-12T15:15:39.907"},{"productId":117863,"name":"Alakazam
+        Spirit Link","cleanName":"Alakazam Spirit Link","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/117863_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/117863/pokemon-xy-fates-collide-alakazam-spirit-link","modifiedOn":"2016-05-04T18:43:40.76"},{"productId":117889,"name":"Alakazam
+        EX (Full Art)","cleanName":"Alakazam EX Full Art","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/117889_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/117889/pokemon-xy-fates-collide-alakazam-ex-full-art","modifiedOn":"2021-10-02T09:42:53.15"},{"productId":117890,"name":"M
+        Alakazam EX (Full Art)","cleanName":"M Alakazam EX Full Art","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/117890_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/117890/pokemon-xy-fates-collide-m-alakazam-ex-full-art","modifiedOn":"2021-09-22T18:45:15.867"},{"productId":117896,"name":"Alakazam
+        EX (Secret)","cleanName":"Alakazam EX Secret","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/117896_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/117896/pokemon-xy-fates-collide-alakazam-ex-secret","modifiedOn":"2022-01-31T21:07:09.02"},{"productId":118332,"name":"Fates
+        Collide Three Pack Pin Blisters [Mega Alakazam]","cleanName":"Fates Collide
+        Three Pack Pin Blisters Mega Alakazam","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/118332_200w.jpg","categoryId":3,"groupId":1780,"url":"https://www.tcgplayer.com/product/118332/pokemon-xy-fates-collide-fates-collide-three-pack-pin-blisters-mega-alakazam","modifiedOn":"2016-05-10T14:23:26.383"},{"productId":180715,"name":"Alakazam
+        - 1/12 (Box Topper)","cleanName":"Alakazam 1 12 Box Topper","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/180715_200w.jpg","categoryId":3,"groupId":1528,"url":"https://www.tcgplayer.com/product/180715/pokemon-jumbo-cards-alakazam-1-12-box-topper","modifiedOn":"2021-05-05T14:52:58.883"},{"productId":226606,"name":"Alakazam
+        V (Full Art)","cleanName":"Alakazam V Full Art","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226606_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226606/pokemon-swsh04-vivid-voltage-alakazam-v-full-art","modifiedOn":"2022-01-27T16:22:25.88"},{"productId":228979,"name":"Alakazam
+        V Box","cleanName":"Alakazam V Box","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/228979_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/228979/pokemon-swsh04-vivid-voltage-alakazam-v-box","modifiedOn":"2021-01-08T05:03:08.15"},{"productId":228980,"name":"Alakazam
+        V - SWSH083","cleanName":"Alakazam V SWSH083","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/228980_200w.jpg","categoryId":3,"groupId":2545,"url":"https://www.tcgplayer.com/product/228980/pokemon-swsh-sword-and-shield-promo-cards-alakazam-v-swsh083","modifiedOn":"2021-10-20T19:37:08.66"},{"productId":228981,"name":"Alakazam
+        V - SWSH083","cleanName":"Alakazam V SWSH083","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/228981_200w.jpg","categoryId":3,"groupId":1528,"url":"https://www.tcgplayer.com/product/228981/pokemon-jumbo-cards-alakazam-v-swsh083","modifiedOn":"2021-01-08T05:03:08.15"},{"productId":251560,"name":"Code
+        Card - Alakazam V Box","cleanName":"Code Card Alakazam V Box","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/251560_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/251560/pokemon-swsh04-vivid-voltage-code-card-alakazam-v-box","modifiedOn":"2021-10-25T15:50:19.237"}]}'
+  recorded_at: Fri, 25 Feb 2022 20:50:53 GMT
+recorded_with: VCR 6.0.0

@@ -1,16 +1,15 @@
-class TCGPlayerSDK::ProductPriceList
-  attr_accessor :response
+class TCGPlayerSDK::ProductPriceList < TCGPlayerSDK::ResponseStruct
 
   ##
   # Group prices by product ID.  This will set
   # prices to an empty hash if there was an error.  Check response.errors for details about any errors.
   #
   # @param _response[TCGPlayerSDK::ResponseStruct] the result of calling TCGPlayerAPI#product_pricing
-  def initialize(_response)
-    @response = _response
+  def initialize(hash = {})
+    super
 
-    if(response.success && response.results)
-      @prices = response.results.map{|r| TCGPlayerSDK::ProductPrice.new(r)}.group_by{|r| r.productId}
+    if(self.success && self.results)
+      @prices = self.results.map{|r| TCGPlayerSDK::ProductPrice.new(r)}.group_by{|r| r.productId}
     else
       @prices = {}
     end

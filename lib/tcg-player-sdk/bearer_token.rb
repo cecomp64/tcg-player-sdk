@@ -17,4 +17,14 @@ class TCGPlayerSDK::BearerToken
   def to_s
     ap self, indent: -2
   end
+
+  def to_json
+    h = {
+      access_token: token,
+      token_type: 'bearer',
+      expires_in: expires_in,
+      '.issued' => issued.to_s,
+      '.expires' => expiration.to_s,
+    }.to_json
+  end
 end

@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.tcgplayer.com/catalog/categories/3/search
+    body:
+      encoding: UTF-8
+      string: '{"sort":"ProductName ASC","limit":10,"offset":0,"filters":[{"name":"ProductName","values":["Alakazam"]}]}'
+    headers:
+      Authorization:
+      - bearer IlGJZc-FZ0X3cWz-5sad9NHuqnr_RY5wZgVAf8rbMJa09V7e-wwj8VJWt7Q0j936TVmKVfUhxNpjTYzsZKni33a_5TzdSxSJgjEsSBf3nNG23m0ex2krog4anRhYEnU6X03DsppBhqTQuZplIM7gzKRiqO4TLQVFpBxQe92mCc6lSRFv4-6HwJJBuT8WPzWH_ppYHejQPnPVN0bCFTjOBQUbyKv_btXEQgP0rK2d40Ek8iN9sK9u31sS5Ut1G0zQcU6ENK0a3-HAZjxtY6q2WeDO2Rv81uqUXOjBCwRLugllTMV1Hpzaoex7qEpk-zigq2cCfA
+      User-Agent:
+      - Unknown
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - api.tcgplayer.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 25 Feb 2022 20:50:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '118'
+      Connection:
+      - close
+      Set-Cookie:
+      - AWSALB=iSH/Kxgic6dSfs+Poqyq8+C6J4YsrfuAHv4sW8guSIyUceUBNy4u9LfcfNnBmzEjXk7Y0ywzAAgf1yRNMDa8NS2QP8b+sO5WAH5AZklQKKTCSe+ARpPUB1SRHyYO;
+        Expires=Fri, 04 Mar 2022 20:50:49 GMT; Path=/
+      - AWSALBCORS=iSH/Kxgic6dSfs+Poqyq8+C6J4YsrfuAHv4sW8guSIyUceUBNy4u9LfcfNnBmzEjXk7Y0ywzAAgf1yRNMDa8NS2QP8b+sO5WAH5AZklQKKTCSe+ARpPUB1SRHyYO;
+        Expires=Fri, 04 Mar 2022 20:50:49 GMT; Path=/; SameSite=None; Secure
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"totalItems":28,"success":true,"errors":[],"results":[42444,106996,42346,83496,83501,83499,83497,83500,83498,180715]}'
+  recorded_at: Fri, 25 Feb 2022 20:50:49 GMT
+recorded_with: VCR 6.0.0
