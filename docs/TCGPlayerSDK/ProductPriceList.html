@@ -138,7 +138,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Group prices by product ID.</p>
+<p>A new instance of ProductPriceList.</p>
 </div></span>
   
 </li>
@@ -223,33 +223,13 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Group prices by product ID.  This will set prices to an empty hash if there was an error.  Check response.errors for details about any errors.</p>
+<p>Returns a new instance of ProductPriceList.</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
-      
-        <span class='name'>_response</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="ResponseStruct.html" title="TCGPlayerSDK::ResponseStruct (class)">TCGPlayerSDK::ResponseStruct</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the result of calling TCGPlayerAPI#product_pricing</p>
-</div>
-      
-    </li>
-  
-</ul>
-
 
 </div><table class="source_code">
   <tr>
@@ -257,27 +237,15 @@
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13
-14
-15
-16</pre>
+3
+4
+5</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 3</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
-
-  <span class='kw'>if</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
-    <span class='ivar'>@prices</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='const'><span class='object_link'><a href="../TCGPlayerSDK.html" title="TCGPlayerSDK (class)">TCGPlayerSDK</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProductPrice.html" title="TCGPlayerSDK::ProductPrice (class)">ProductPrice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ProductPrice.html#initialize-instance_method" title="TCGPlayerSDK::ProductPrice#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_group_by'>group_by</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_productId'>productId</span><span class='rbrace'>}</span>
-  <span class='kw'>else</span>
-    <span class='ivar'>@prices</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -364,14 +332,26 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prices'>prices</span>
+  <span class='kw'>if</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
+    <span class='ivar'>@prices</span> <span class='op'>||=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='const'><span class='object_link'><a href="../TCGPlayerSDK.html" title="TCGPlayerSDK (class)">TCGPlayerSDK</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ProductPrice.html" title="TCGPlayerSDK::ProductPrice (class)">ProductPrice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ProductPrice.html#initialize-instance_method" title="TCGPlayerSDK::ProductPrice#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_group_by'>group_by</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_productId'>productId</span><span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@prices</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+
   <span class='ivar'>@prices</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -418,27 +398,31 @@
       <pre class="lines">
 
 
+47
+48
+49
+50
+51
 52
 53
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_prices'>valid_prices</span>
-  <span class='id identifier rubyid_valid_prices'>valid_prices</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@prices</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_prl'>prl</span><span class='op'>|</span>
-    <span class='id identifier rubyid_valid_prices'>valid_prices</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_valid_prices'>valid_prices</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_prl'>prl</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_pr'>pr</span><span class='op'>|</span> <span class='id identifier rubyid_pr'>pr</span><span class='period'>.</span><span class='id identifier rubyid_has_valid_prices?'>has_valid_prices?</span><span class='rbrace'>}</span>
+  <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@valid_prices</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+    <span class='ivar'>@valid_prices</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='ivar'>@prices</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_prl'>prl</span><span class='op'>|</span>
+      <span class='ivar'>@valid_prices</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='ivar'>@valid_prices</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_prl'>prl</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_pr'>pr</span><span class='op'>|</span> <span class='id identifier rubyid_pr'>pr</span><span class='period'>.</span><span class='id identifier rubyid_has_valid_prices?'>has_valid_prices?</span><span class='rbrace'>}</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
 
-  <span class='kw'>return</span> <span class='id identifier rubyid_valid_prices'>valid_prices</span>
+  <span class='kw'>return</span> <span class='ivar'>@valid_prices</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -450,7 +434,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Feb 25 14:45:03 2022 by
+  Generated on Fri Feb 25 16:38:00 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

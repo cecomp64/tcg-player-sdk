@@ -1,18 +1,7 @@
 class TCGPlayerSDK::ProductPriceList < TCGPlayerSDK::ResponseStruct
 
-  ##
-  # Group prices by product ID.  This will set
-  # prices to an empty hash if there was an error.  Check response.errors for details about any errors.
-  #
-  # @param _response[TCGPlayerSDK::ResponseStruct] the result of calling TCGPlayerAPI#product_pricing
   def initialize(hash = {})
     super
-
-    if(self.success && self.results)
-      @prices = self.results.map{|r| TCGPlayerSDK::ProductPrice.new(r)}.group_by{|r| r.productId}
-    else
-      @prices = {}
-    end
   end
 
   ##
@@ -42,6 +31,12 @@ class TCGPlayerSDK::ProductPriceList < TCGPlayerSDK::ResponseStruct
   #
   # @return [Hash<Integer, Array<TCGPlayerSDK::ProductPrice>>]
   def prices
+    if(self.success && self.results)
+      @prices ||= self.results.map{|r| TCGPlayerSDK::ProductPrice.new(r)}.group_by{|r| r.productId}
+    else
+      @prices = {}
+    end
+
     @prices
   end
 
@@ -50,13 +45,15 @@ class TCGPlayerSDK::ProductPriceList < TCGPlayerSDK::ResponseStruct
   #
   # @return [Hash<Integer, Array<TCGPlayerSDK::ProductPrice>>]
   def valid_prices
-    valid_prices = {}
-    @prices.each do |id, prl|
-      valid_prices[id] ||= []
-      valid_prices[id] = prl.select{|pr| pr.has_valid_prices?}
+    if(@valid_prices.nil?)
+      @valid_prices = {}
+      @prices.each do |id, prl|
+        @valid_prices[id] ||= []
+        @valid_prices[id] = prl.select{|pr| pr.has_valid_prices?}
+      end
     end
 
-    return valid_prices
+    return @valid_prices
   end
 end
 
@@ -79,5 +76,15 @@ class TCGPlayerSDK::ProductPrice < TCGPlayerSDK::ResponseStruct
   # @return [Boolean] Returns false if there are no non-nil prices
   def has_valid_prices?
     return !(lowPrice.nil? && midPrice.nil? && highPrice.nil? && directLowPrice.nil? && marketPrice.nil?)
+  end
+
+  ##
+  # Returns "price points" described by this price object.  i.e. "midPrice" and "highPrice".  These are also accessors,
+  # so access away
+  #   price.points.each{|pp| puts price.send(pp)}
+  #
+  # @return Array<Symbol>
+  def points
+    self.keys.select{|k| k.to_s =~ /Price/i}
   end
 end

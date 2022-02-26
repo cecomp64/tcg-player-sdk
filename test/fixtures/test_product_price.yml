@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - bearer IlGJZc-FZ0X3cWz-5sad9NHuqnr_RY5wZgVAf8rbMJa09V7e-wwj8VJWt7Q0j936TVmKVfUhxNpjTYzsZKni33a_5TzdSxSJgjEsSBf3nNG23m0ex2krog4anRhYEnU6X03DsppBhqTQuZplIM7gzKRiqO4TLQVFpBxQe92mCc6lSRFv4-6HwJJBuT8WPzWH_ppYHejQPnPVN0bCFTjOBQUbyKv_btXEQgP0rK2d40Ek8iN9sK9u31sS5Ut1G0zQcU6ENK0a3-HAZjxtY6q2WeDO2Rv81uqUXOjBCwRLugllTMV1Hpzaoex7qEpk-zigq2cCfA
+      - bearer JTqbICPfsVMl5egtoh6U-e7h0OcQhEmVVC4bBFaRyqDememptw3XEmq3x831WqY8cFC7JtzMtPEMDDDflNgZQ6khAikRwQ1XOOM5w4OiuHJJUGoTeGQl7UvNLi5dxORqj_BhIZKN3Lhw1UmWAjvVOTYEH3dXG6YDD-rgP4_sSqqsRQYProjlVXZkL-TBJcFdTM1DzMhnTSCU_YKhlerazhDIFRbfXiU1z--0RtIK5_k9gIZir2PnfzY_UzEZeL0jjQYL0DrqH6PI6SkO26vBJT-HXRoMKq2fDJla4HxYLx408Wp_F66ZZAT_7FHqyy1ZLsjX1w
       User-Agent:
       - Unknown
       Connection:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 25 Feb 2022 20:50:50 GMT
+      - Sat, 26 Feb 2022 00:43:57 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=84A6jM7rTCtCl7ykM7wP1V2Q6n3zqaKFBJlLJ48dBbPoKSx6LU2RasIb6VFCjCqZnqh9BV+jA6ggOzXKkDvK/qUp7GZiM4qNWkMJ23k7UOJ3q7Qy0g+BMYrHiA0r;
-        Expires=Fri, 04 Mar 2022 20:50:50 GMT; Path=/
-      - AWSALBCORS=84A6jM7rTCtCl7ykM7wP1V2Q6n3zqaKFBJlLJ48dBbPoKSx6LU2RasIb6VFCjCqZnqh9BV+jA6ggOzXKkDvK/qUp7GZiM4qNWkMJ23k7UOJ3q7Qy0g+BMYrHiA0r;
-        Expires=Fri, 04 Mar 2022 20:50:50 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=DJCAyoQclC4z2l13uqUpHyqTiA0FK/tEp725zzu+xFgR3sUvs5w8SBms/A83Cu6luKh5da3MFElxZGe/5seMBQDcHIdeMQI7UfZuymeuvnn3PuHIpCk2CFpMCpXw;
+        Expires=Sat, 05 Mar 2022 00:43:57 GMT; Path=/
+      - AWSALBCORS=DJCAyoQclC4z2l13uqUpHyqTiA0FK/tEp725zzu+xFgR3sUvs5w8SBms/A83Cu6luKh5da3MFElxZGe/5seMBQDcHIdeMQI7UfZuymeuvnn3PuHIpCk2CFpMCpXw;
+        Expires=Sat, 05 Mar 2022 00:43:57 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - must-revalidate, max-age=300, private
       Server:
@@ -47,10 +47,10 @@ http_interactions:
         Edition"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
         Edition Holofoil"},{"productId":85737,"lowPrice":4.99,"midPrice":5.63,"highPrice":7.73,"marketPrice":10.35,"directLowPrice":null,"subTypeName":"Reverse
         Holofoil"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited
-        Holofoil"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Normal"},{"productId":85736,"lowPrice":3.52,"midPrice":17.49,"highPrice":39.99,"marketPrice":20.08,"directLowPrice":null,"subTypeName":"Holofoil"},{"productId":85736,"lowPrice":4.27,"midPrice":5.71,"highPrice":11.24,"marketPrice":9.73,"directLowPrice":4.27,"subTypeName":"Reverse
+        Holofoil"},{"productId":85737,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Normal"},{"productId":85736,"lowPrice":3.52,"midPrice":17.49,"highPrice":39.99,"marketPrice":20.08,"directLowPrice":null,"subTypeName":"Holofoil"},{"productId":85736,"lowPrice":4.27,"midPrice":5.60,"highPrice":11.24,"marketPrice":9.73,"directLowPrice":4.27,"subTypeName":"Reverse
         Holofoil"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
         Edition Holofoil"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
         Edition"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited
         Holofoil"}]}'
-  recorded_at: Fri, 25 Feb 2022 20:50:50 GMT
+  recorded_at: Sat, 26 Feb 2022 00:43:57 GMT
 recorded_with: VCR 6.0.0

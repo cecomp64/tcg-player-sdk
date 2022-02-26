@@ -7,21 +7,25 @@ Documentation: https://cecomp64.github.io/tcg-player-sdk/
 # Installation
 
 Via bundler:
-```ruby
+
+```
 gem 'tcg-player-sdk'
 ```
 
 Via RubyGems:
-```shell
+
+```
 gem install 'tcg-player-sdk'
 ```
 
 # Instantiation and Authorization
 
-TCGPlayerSDK can be instantiated with an optional user agent and require public and private keys.  Keys can come from environment variables, or be passed in to the constructor.
+TCGPlayerSDK can be instantiated with an optional user agent and required public and private keys.  Keys can come from environment variables, or be passed in to the constructor.
 TCGPlayer.com typically asks users to use a consistent agent id so they can track your usage.
 
 ```ruby
+require('tcg-player-sdk')
+
 # Authorization is done automatically, and will use ENV['TCG_PLAYER_API_PUBLIC_KEY'] and
 # ENV['TCG_PLAYER_API_PRIVATE_KEY'] if not otherwise specified
 tcg = TCGPlayerSDK.new(user_agent: 'Your-User-Agent-Identifier')
@@ -236,6 +240,10 @@ ap pricelist.valid_prices.values.first.first
 # Ofcourse, pricelist is also a ResponseStruct, so take a look at the original response yourself
 pricelist.success # => true (obviously)
 ```
+
+Note that the return type of `#product_pricing` is a `ProductPriceList` (which is also a `ResponseStruct`).  This gives us
+some helpers like `#prices` and `#valid_prices` which will group the otherwise flat results by `productId`.  The `#product_pricing` function
+will automatically handle splitting up large requests (many productIds) into sever smaller ones, and seamlessly merge the results.
 
 As always... See [the docs](https://cecomp64.github.io/tcg-player-sdk/) for full details.
 

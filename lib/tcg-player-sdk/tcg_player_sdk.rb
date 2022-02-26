@@ -155,18 +155,21 @@ class TCGPlayerSDK
   # https://docs.tcgplayer.com/reference/catalog_getproduct-1
   #
   def product_details(_ids, params = {})
-    ids = id_list(_ids)
-    query("#{CATALOG_URL}/products/#{ids}", params)
+    slice_ids(_ids) do |slice|
+      query("#{CATALOG_URL}/products/#{id_list(slice)}", params)
+    end
   end
 
   ##
   # Accessor to https://docs.tcgplayer.com/reference/pricing_getproductprices-1
+  # Automatically handles arbitrarily large number of _ids and provides one merged response
   #
   # @param _ids An array of product IDs to query
   # @return [TCGPlayerSDK::ProductPriceList]
   def product_pricing(_ids)
-    ids = id_list(_ids)
-    TCGPlayerSDK::ProductPriceList.new(query("#{PRICING_URL}/product/#{ids}"))
+    slice_ids(_ids) do |slice|
+      TCGPlayerSDK::ProductPriceList.new(query("#{PRICING_URL}/product/#{id_list(slice)}"))
+    end
   end
 
   private
@@ -179,4 +182,23 @@ class TCGPlayerSDK
   def id_list(value)
     value.is_a?(Array) ? value.join(',') : value
   end
+
+  ##
+  # Slice the input ids into smaller pieces, and execute the given block with each slice.  Merge the results
+  def slice_ids(_ids, slice_size=200)
+    ids = _ids.is_a?(Array) ? _ids : [_ids]
+    resp = nil
+
+    ids.each_slice(slice_size) do |slice|
+      response = yield(slice)
+      if(resp.nil?)
+        resp = response
+      else
+        resp.results += response.results if(response.results && resp.results)
+      end
+    end
+
+    return resp
+  end
+
 end

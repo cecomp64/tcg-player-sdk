@@ -190,6 +190,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#points-instance_method" title="#points (instance method)">#<strong>points</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns “price points” described by this price object.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -235,12 +259,12 @@
       <pre class="lines">
 
 
-74
-75
-76</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -311,15 +335,59 @@
       <pre class="lines">
 
 
-80
-81
-82</pre>
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_valid_prices?'>has_valid_prices?</span>
   <span class='kw'>return</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_lowPrice'>lowPrice</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_midPrice'>midPrice</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_highPrice'>highPrice</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_directLowPrice'>directLowPrice</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_marketPrice'>marketPrice</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="points-instance_method">
+  
+    #<strong>points</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns “price points” described by this price object.  i.e. “midPrice” and “highPrice”.  These are also accessors, so access away</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_price'>price</span><span class='period'>.</span><span class='id identifier rubyid_points'>points</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_pp'>pp</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_price'>price</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_pp'>pp</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/tcg-player-sdk/product_price_list.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_points'>points</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>Price</span><span class='regexp_end'>/i</span></span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -331,7 +399,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Feb 25 14:45:03 2022 by
+  Generated on Fri Feb 25 16:38:00 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

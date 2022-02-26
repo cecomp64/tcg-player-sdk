@@ -66,15 +66,23 @@
 
 <h1 id="label-Installation">Installation</h1>
 
-<p>Via bundler: <code>ruby gem &#39;tcg-player-sdk&#39; </code></p>
+<p>Via bundler:</p>
 
-<p>Via RubyGems: <code>shell gem install &#39;tcg-player-sdk&#39; </code></p>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tcg-player-sdk</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>Via RubyGems:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tcg-player-sdk</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
 
 <h1 id="label-Instantiation+and+Authorization">Instantiation and Authorization</h1>
 
-<p>TCGPlayerSDK can be instantiated with an optional user agent and require public and private keys. Keys can come from environment variables, or be passed in to the constructor. TCGPlayer.com typically asks users to use a consistent agent id so they can track your usage.</p>
+<p>TCGPlayerSDK can be instantiated with an optional user agent and required public and private keys. Keys can come from environment variables, or be passed in to the constructor. TCGPlayer.com typically asks users to use a consistent agent id so they can track your usage.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># Authorization is done automatically, and will use ENV[&#39;TCG_PLAYER_API_PUBLIC_KEY&#39;] and
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tcg-player-sdk</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='comment'># Authorization is done automatically, and will use ENV[&#39;TCG_PLAYER_API_PUBLIC_KEY&#39;] and
 </span><span class='comment'># ENV[&#39;TCG_PLAYER_API_PRIVATE_KEY&#39;] if not otherwise specified
 </span><span class='id identifier rubyid_tcg'>tcg</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="TCGPlayerSDK.html" title="TCGPlayerSDK (class)">TCGPlayerSDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="TCGPlayerSDK.html#initialize-instance_method" title="TCGPlayerSDK#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>user_agent:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Your-User-Agent-Identifier</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
@@ -271,6 +279,8 @@ TCGPlayerSDK::ResponseStruct {
 </span><span class='id identifier rubyid_pricelist'>pricelist</span><span class='period'>.</span><span class='id identifier rubyid_success'>success</span> <span class='comment'># =&gt; true (obviously)
 </span></code></pre>
 
+<p>Note that the return type of <code>#product_pricing</code> is a <code>ProductPriceList</code> (which is also a <code>ResponseStruct</code>). This gives us some helpers like <code>#prices</code> and <code>#valid_prices</code> which will group the otherwise flat results by <code>productId</code>. The <code>#product_pricing</code> function will automatically handle splitting up large requests (many productIds) into sever smaller ones, and seamlessly merge the results.</p>
+
 <p>As always… See <a href="https://cecomp64.github.io/tcg-player-sdk/">the docs</a> for full details.</p>
 
 <h1 id="label-Testing">Testing</h1>
@@ -294,7 +304,7 @@ TCGPlayerSDK::ResponseStruct {
 </div></div>
 
       <div id="footer">
-  Generated on Fri Feb 25 14:45:03 2022 by
+  Generated on Fri Feb 25 16:38:00 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.1).
 </div>

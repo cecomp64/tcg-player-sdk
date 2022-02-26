@@ -8,7 +8,7 @@ http_interactions:
       string: '{"sort":"ProductName ASC","limit":10,"offset":0,"filters":[{"name":"ProductName","values":["Alakazam"]}]}'
     headers:
       Authorization:
-      - bearer IlGJZc-FZ0X3cWz-5sad9NHuqnr_RY5wZgVAf8rbMJa09V7e-wwj8VJWt7Q0j936TVmKVfUhxNpjTYzsZKni33a_5TzdSxSJgjEsSBf3nNG23m0ex2krog4anRhYEnU6X03DsppBhqTQuZplIM7gzKRiqO4TLQVFpBxQe92mCc6lSRFv4-6HwJJBuT8WPzWH_ppYHejQPnPVN0bCFTjOBQUbyKv_btXEQgP0rK2d40Ek8iN9sK9u31sS5Ut1G0zQcU6ENK0a3-HAZjxtY6q2WeDO2Rv81uqUXOjBCwRLugllTMV1Hpzaoex7qEpk-zigq2cCfA
+      - bearer JTqbICPfsVMl5egtoh6U-e7h0OcQhEmVVC4bBFaRyqDememptw3XEmq3x831WqY8cFC7JtzMtPEMDDDflNgZQ6khAikRwQ1XOOM5w4OiuHJJUGoTeGQl7UvNLi5dxORqj_BhIZKN3Lhw1UmWAjvVOTYEH3dXG6YDD-rgP4_sSqqsRQYProjlVXZkL-TBJcFdTM1DzMhnTSCU_YKhlerazhDIFRbfXiU1z--0RtIK5_k9gIZir2PnfzY_UzEZeL0jjQYL0DrqH6PI6SkO26vBJT-HXRoMKq2fDJla4HxYLx408Wp_F66ZZAT_7FHqyy1ZLsjX1w
       User-Agent:
       - Unknown
       Connection:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 25 Feb 2022 20:50:49 GMT
+      - Sat, 26 Feb 2022 00:43:57 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -31,10 +31,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=iSH/Kxgic6dSfs+Poqyq8+C6J4YsrfuAHv4sW8guSIyUceUBNy4u9LfcfNnBmzEjXk7Y0ywzAAgf1yRNMDa8NS2QP8b+sO5WAH5AZklQKKTCSe+ARpPUB1SRHyYO;
-        Expires=Fri, 04 Mar 2022 20:50:49 GMT; Path=/
-      - AWSALBCORS=iSH/Kxgic6dSfs+Poqyq8+C6J4YsrfuAHv4sW8guSIyUceUBNy4u9LfcfNnBmzEjXk7Y0ywzAAgf1yRNMDa8NS2QP8b+sO5WAH5AZklQKKTCSe+ARpPUB1SRHyYO;
-        Expires=Fri, 04 Mar 2022 20:50:49 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=RUBQPEh1rNPgxgiSmyDc0wz9rN25C+0ZdM3GBin487IihVvpPgisnLwlTsIV9/KuyTtYqQO0lTLm+q3GlCPideYD80T7jpnqgF744LvOFlQGTB4uSOQmbYn1Gdqr;
+        Expires=Sat, 05 Mar 2022 00:43:57 GMT; Path=/
+      - AWSALBCORS=RUBQPEh1rNPgxgiSmyDc0wz9rN25C+0ZdM3GBin487IihVvpPgisnLwlTsIV9/KuyTtYqQO0lTLm+q3GlCPideYD80T7jpnqgF744LvOFlQGTB4uSOQmbYn1Gdqr;
+        Expires=Sat, 05 Mar 2022 00:43:57 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - no-cache
       Pragma:
@@ -49,6 +49,6 @@ http_interactions:
       - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"totalItems":28,"success":true,"errors":[],"results":[42444,106996,42346,83496,83501,83499,83497,83500,83498,180715]}'
-  recorded_at: Fri, 25 Feb 2022 20:50:49 GMT
+      string: '{"totalItems":28,"success":true,"errors":[],"results":[42444,106996,83496,42346,83501,83499,83497,83500,83498,180715]}'
+  recorded_at: Sat, 26 Feb 2022 00:43:57 GMT
 recorded_with: VCR 6.0.0
