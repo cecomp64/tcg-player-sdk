@@ -47,7 +47,7 @@ class TCGPlayerSDK::ProductPriceList < TCGPlayerSDK::ResponseStruct
   def valid_prices
     if(@valid_prices.nil?)
       @valid_prices = {}
-      @prices.each do |id, prl|
+      prices.each do |id, prl|
         @valid_prices[id] ||= []
         @valid_prices[id] = prl.select{|pr| pr.has_valid_prices?}
       end

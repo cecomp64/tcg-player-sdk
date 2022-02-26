@@ -12,8 +12,10 @@ class TCGPlayerAPITest < Minitest::Test
 
       assert pl.success
       assert pl.errors.empty?
-      assert_equal pl.prices.keys.size, tcg_ids.size
+
+      # Check valid_prices first to make sure it resolves any dependency on prices
       assert_equal pl.valid_prices.keys.size, tcg_ids.size
+      assert_equal pl.prices.keys.size, tcg_ids.size
     end
   end
 
