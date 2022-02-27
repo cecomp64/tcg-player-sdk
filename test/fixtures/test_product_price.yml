@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - bearer JTqbICPfsVMl5egtoh6U-e7h0OcQhEmVVC4bBFaRyqDememptw3XEmq3x831WqY8cFC7JtzMtPEMDDDflNgZQ6khAikRwQ1XOOM5w4OiuHJJUGoTeGQl7UvNLi5dxORqj_BhIZKN3Lhw1UmWAjvVOTYEH3dXG6YDD-rgP4_sSqqsRQYProjlVXZkL-TBJcFdTM1DzMhnTSCU_YKhlerazhDIFRbfXiU1z--0RtIK5_k9gIZir2PnfzY_UzEZeL0jjQYL0DrqH6PI6SkO26vBJT-HXRoMKq2fDJla4HxYLx408Wp_F66ZZAT_7FHqyy1ZLsjX1w
+      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
       User-Agent:
       - Unknown
       Connection:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 26 Feb 2022 00:43:57 GMT
+      - Sun, 27 Feb 2022 01:09:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=DJCAyoQclC4z2l13uqUpHyqTiA0FK/tEp725zzu+xFgR3sUvs5w8SBms/A83Cu6luKh5da3MFElxZGe/5seMBQDcHIdeMQI7UfZuymeuvnn3PuHIpCk2CFpMCpXw;
-        Expires=Sat, 05 Mar 2022 00:43:57 GMT; Path=/
-      - AWSALBCORS=DJCAyoQclC4z2l13uqUpHyqTiA0FK/tEp725zzu+xFgR3sUvs5w8SBms/A83Cu6luKh5da3MFElxZGe/5seMBQDcHIdeMQI7UfZuymeuvnn3PuHIpCk2CFpMCpXw;
-        Expires=Sat, 05 Mar 2022 00:43:57 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=7Tu/Gf3mbhD3XH052Mhl/Reiw12LlFs+7DNwKrDeHBdN+6xFn/P1wzto5TzXOP0pRCitG7iQCGHioyQXgGaq/cze/FHQJ8NNQMAA7NdhxddqavRrBpuWgCmVWYMe;
+        Expires=Sun, 06 Mar 2022 01:09:43 GMT; Path=/
+      - AWSALBCORS=7Tu/Gf3mbhD3XH052Mhl/Reiw12LlFs+7DNwKrDeHBdN+6xFn/P1wzto5TzXOP0pRCitG7iQCGHioyQXgGaq/cze/FHQJ8NNQMAA7NdhxddqavRrBpuWgCmVWYMe;
+        Expires=Sun, 06 Mar 2022 01:09:43 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - must-revalidate, max-age=300, private
       Server:
@@ -52,5 +52,5 @@ http_interactions:
         Edition Holofoil"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"1st
         Edition"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited"},{"productId":85736,"lowPrice":null,"midPrice":null,"highPrice":null,"marketPrice":null,"directLowPrice":null,"subTypeName":"Unlimited
         Holofoil"}]}'
-  recorded_at: Sat, 26 Feb 2022 00:43:57 GMT
+  recorded_at: Sun, 27 Feb 2022 01:09:43 GMT
 recorded_with: VCR 6.0.0

@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tcgplayer.com/catalog/products/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
+      User-Agent:
+      - Unknown
+      Connection:
+      - close
+      Host:
+      - api.tcgplayer.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 27 Feb 2022 01:09:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '3009'
+      Connection:
+      - close
+      Set-Cookie:
+      - AWSALB=OJIfA93qY1rYvQlKGYlLCmIAhS34JxQIdYhLQ4YKaPHFTXqtKEC1bGJEi2Ef9zHkMGAP2uGgQWpwtTVnWjJcwxIUkOBz7xY6XbgmyW9dYq325QbMMjRxnGqRAQ7X;
+        Expires=Sun, 06 Mar 2022 01:09:46 GMT; Path=/
+      - AWSALBCORS=OJIfA93qY1rYvQlKGYlLCmIAhS34JxQIdYhLQ4YKaPHFTXqtKEC1bGJEi2Ef9zHkMGAP2uGgQWpwtTVnWjJcwxIUkOBz7xY6XbgmyW9dYq325QbMMjRxnGqRAQ7X;
+        Expires=Sun, 06 Mar 2022 01:09:46 GMT; Path=/; SameSite=None; Secure
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"totalItems":238728,"success":true,"errors":[],"results":[{"productId":1,"name":"TCGplayer
+        Gift Card","cleanName":"TCGplayer Gift Card","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/1_200w.jpg","categoryId":22,"groupId":1685,"url":"https://www.tcgplayer.com/product/1/tcgplayer-special-tcgplayer-gift-card","modifiedOn":"2015-11-18T11:29:32.39"},{"productId":86,"name":"Abyssal
+        Nightstalker","cleanName":"Abyssal Nightstalker","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/86_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/86/magic-portal-second-age-abyssal-nightstalker","modifiedOn":"2022-02-11T16:36:00.017"},{"productId":87,"name":"Air
+        Elemental","cleanName":"Air Elemental","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/87_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/87/magic-portal-second-age-air-elemental","modifiedOn":"2013-05-09T12:13:41.653"},{"productId":88,"name":"Alaborn
+        Cavalier","cleanName":"Alaborn Cavalier","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/88_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/88/magic-portal-second-age-alaborn-cavalier","modifiedOn":"2019-12-17T09:31:34.77"},{"productId":89,"name":"Alaborn
+        Grenadier","cleanName":"Alaborn Grenadier","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/89_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/89/magic-portal-second-age-alaborn-grenadier","modifiedOn":"2021-09-09T17:46:36.39"},{"productId":90,"name":"Alaborn
+        Musketeer","cleanName":"Alaborn Musketeer","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/90_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/90/magic-portal-second-age-alaborn-musketeer","modifiedOn":"2019-07-13T15:37:15.537"},{"productId":91,"name":"Alaborn
+        Trooper","cleanName":"Alaborn Trooper","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/91_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/91/magic-portal-second-age-alaborn-trooper","modifiedOn":"2013-05-09T12:13:41.653"},{"productId":92,"name":"Alaborn
+        Veteran","cleanName":"Alaborn Veteran","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/92_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/92/magic-portal-second-age-alaborn-veteran","modifiedOn":"2019-01-26T13:01:25.693"},{"productId":93,"name":"Alaborn
+        Zealot","cleanName":"Alaborn Zealot","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/93_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/93/magic-portal-second-age-alaborn-zealot","modifiedOn":"2021-09-23T11:13:40.66"},{"productId":94,"name":"Alluring
+        Scent","cleanName":"Alluring Scent","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/94_200w.jpg","categoryId":1,"groupId":87,"url":"https://www.tcgplayer.com/product/94/magic-portal-second-age-alluring-scent","modifiedOn":"2021-03-16T14:51:06.59"}]}'
+  recorded_at: Sun, 27 Feb 2022 01:09:46 GMT
+- request:
+    method: get
+    uri: https://api.tcgplayer.com/pricing/product/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
+      User-Agent:
+      - Unknown
+      Connection:
+      - close
+      Host:
+      - api.tcgplayer.com
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 27 Feb 2022 01:09:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '58'
+      Connection:
+      - close
+      Set-Cookie:
+      - AWSALB=TgIoSA/b0+py8wFp3s7AT0um+GiOqs7W+uH9HX5U1qR47aI9Uun2cJh/y1RWc4Z3ELB1LxVEqjVrkhxDgImUuPW24xyZMBWRUobxYXUtdQ6YqqWOrN5viR+CUNsg;
+        Expires=Sun, 06 Mar 2022 01:09:46 GMT; Path=/
+      - AWSALBCORS=TgIoSA/b0+py8wFp3s7AT0um+GiOqs7W+uH9HX5U1qR47aI9Uun2cJh/y1RWc4Z3ELB1LxVEqjVrkhxDgImUuPW24xyZMBWRUobxYXUtdQ6YqqWOrN5viR+CUNsg;
+        Expires=Sun, 06 Mar 2022 01:09:46 GMT; Path=/; SameSite=None; Secure
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: '{"success":false,"errors":["URL not found."],"results":[]}'
+  recorded_at: Sun, 27 Feb 2022 01:09:46 GMT
+recorded_with: VCR 6.0.0

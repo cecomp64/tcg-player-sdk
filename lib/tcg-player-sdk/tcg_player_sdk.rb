@@ -189,12 +189,17 @@ class TCGPlayerSDK
     ids = _ids.is_a?(Array) ? _ids : [_ids]
     resp = nil
 
-    ids.each_slice(slice_size) do |slice|
-      response = yield(slice)
-      if(resp.nil?)
-        resp = response
-      else
-        resp.results += response.results if(response.results && resp.results)
+    # Corner case for emptiness
+    if(ids.empty?)
+      resp = yield(ids)
+    else
+      ids.each_slice(slice_size) do |slice|
+        response = yield(slice)
+        if(resp.nil?)
+          resp = response
+        else
+          resp.results += response.results if(response.results && resp.results)
+        end
       end
     end
 

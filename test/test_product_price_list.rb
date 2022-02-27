@@ -21,12 +21,28 @@ class TCGPlayerAPITest < Minitest::Test
 
   # Should refactor this file as a "products" test file
   def test_sliced_details
-    tcg_ids = lots_of_ids
-    tcg = TCGPlayerSDK.new(bearer_token: valid_bearer_token, noretry: true)
-    pd = tcg.product_details(tcg_ids)
+    VCR.use_cassette('test_sliced_details') do
+      tcg_ids = lots_of_ids
+      tcg = TCGPlayerSDK.new(bearer_token: valid_bearer_token, noretry: true)
+      pd = tcg.product_details(tcg_ids)
 
-    assert pd.success
-    assert pd.errors.empty?
-    assert_equal pd.results.size, tcg_ids.size
+      assert pd.success
+      assert pd.errors.empty?
+      assert_equal pd.results.size, tcg_ids.size
+    end
+  end
+
+  def test_empty_ids
+    VCR.use_cassette('test_empty_ids') do
+      tcg_ids = []
+      tcg = TCGPlayerSDK.new(bearer_token: valid_bearer_token, noretry: true)
+      pd = tcg.product_details(tcg_ids)
+      pl = tcg.product_pricing(tcg_ids)
+
+      refute pd.nil?
+      refute pl.nil?
+      assert pl.prices.is_a?(Hash)
+      assert pl.prices.empty?
+    end
   end
 end
