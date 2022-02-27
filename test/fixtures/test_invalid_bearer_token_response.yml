@@ -21,7 +21,7 @@ http_interactions:
       message: Unauthorized
     headers:
       Date:
-      - Sun, 27 Feb 2022 01:09:46 GMT
+      - Sun, 27 Feb 2022 01:13:00 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=YE6mlELPry59o6ue81fDauQYXO3xVt2BrdmrpajmKkCDp+BWs9Ku9qGgQ0TTPto2BsQxa1uU1j4xFYyQTjmrHXkbhDNc5lmdCYXZO0OOU0gMvHPOeiQX42tRaX/b;
-        Expires=Sun, 06 Mar 2022 01:09:46 GMT; Path=/
-      - AWSALBCORS=YE6mlELPry59o6ue81fDauQYXO3xVt2BrdmrpajmKkCDp+BWs9Ku9qGgQ0TTPto2BsQxa1uU1j4xFYyQTjmrHXkbhDNc5lmdCYXZO0OOU0gMvHPOeiQX42tRaX/b;
-        Expires=Sun, 06 Mar 2022 01:09:46 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=J2jOGvBROuI96IqhfJJYa+0D6ZCRDpdYhl5q4tI/EjTXOPNu8IbNUtlaJt4TLr5Gspz3tvE/aEjzJHuZuBAJ4Tas4LedYZkPQ4EEYz/c3fAwsv7NrAPnk1dss848;
+        Expires=Sun, 06 Mar 2022 01:13:00 GMT; Path=/
+      - AWSALBCORS=J2jOGvBROuI96IqhfJJYa+0D6ZCRDpdYhl5q4tI/EjTXOPNu8IbNUtlaJt4TLr5Gspz3tvE/aEjzJHuZuBAJ4Tas4LedYZkPQ4EEYz/c3fAwsv7NrAPnk1dss848;
+        Expires=Sun, 06 Mar 2022 01:13:00 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - no-cache
       Pragma:
@@ -50,5 +50,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"success":false,"errors":["Missing or invalid bearer token."],"results":[]}'
-  recorded_at: Sun, 27 Feb 2022 01:09:45 GMT
+  recorded_at: Sun, 27 Feb 2022 01:12:59 GMT
 recorded_with: VCR 6.0.0

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
+      - bearer 783uupah0eNbT6AVeImB6oOQuptWUkemfZNqmTJbN2-QYTxsjnkB0SJjTmWH4pvTLfXR4MKe7astdm-hMMPUUkjflfB_-IuM-oMbnlIlwrCkQoxq4g1l4v0H1mT8KIQGEJPclH5pqB4IK9NUUitJ3s7UpuWQRPpegN-Uhb9zvIwjLkn56DQrXQGF4OBmfXyikyoT8fCKEWtGA53KDwhf26sySaClmtZDjtqrbc0Iym_2nVgW4FAFfMo6ZSgZtNTmMRr7FL6DPszqURiFBRbrWRizNQ5Dsjj9WolR9Eptvbb4qNfeXB26CnAMCESAXhOj5jGz1A
       User-Agent:
       - Unknown
       Connection:
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 27 Feb 2022 01:09:47 GMT
+      - Sun, 27 Feb 2022 01:12:57 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -29,10 +29,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=It28UgaERiujzH4zLD+PM5tO4gHY8AC9l3TIEfR2t+f211HYPnshzwBrbVrGtGpVxLjvuZHrAg3ArD6kW8oRTP9ZqX8Qw9Xam1y17bH2QatAIbdqeEioa/IjxBDn;
-        Expires=Sun, 06 Mar 2022 01:09:47 GMT; Path=/
-      - AWSALBCORS=It28UgaERiujzH4zLD+PM5tO4gHY8AC9l3TIEfR2t+f211HYPnshzwBrbVrGtGpVxLjvuZHrAg3ArD6kW8oRTP9ZqX8Qw9Xam1y17bH2QatAIbdqeEioa/IjxBDn;
-        Expires=Sun, 06 Mar 2022 01:09:47 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=TsUXroZ8iWl06QNDp/H6/TW/MkvycPdpkP31NPWhXa3ZLTJnAKrH+hLeS4jsCN2lF5WbfzOMs9cmNMPQrL9C44azl7WH5lSh3GxXTrDi3GylbYi9bwqdLZqyADBc;
+        Expires=Sun, 06 Mar 2022 01:12:57 GMT; Path=/
+      - AWSALBCORS=TsUXroZ8iWl06QNDp/H6/TW/MkvycPdpkP31NPWhXa3ZLTJnAKrH+hLeS4jsCN2lF5WbfzOMs9cmNMPQrL9C44azl7WH5lSh3GxXTrDi3GylbYi9bwqdLZqyADBc;
+        Expires=Sun, 06 Mar 2022 01:12:57 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - no-cache
       Pragma:
@@ -106,7 +106,7 @@ http_interactions:
         Challenge Amulet","cleanName":"Island Challenge Amulet","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/201315_200w.jpg","categoryId":3,"groupId":2534,"url":"https://www.tcgplayer.com/product/201315/pokemon-sm-cosmic-eclipse-island-challenge-amulet","modifiedOn":"2019-10-30T14:59:12.62"},{"productId":201322,"name":"Professor
         Oak''s Setup","cleanName":"Professor Oaks Setup","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/201322_200w.jpg","categoryId":3,"groupId":2534,"url":"https://www.tcgplayer.com/product/201322/pokemon-sm-cosmic-eclipse-professor-oaks-setup","modifiedOn":"2019-10-30T15:41:32.937"},{"productId":234169,"name":"Aegislash
         (108)","cleanName":"Aegislash 108","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/234169_200w.jpg","categoryId":3,"groupId":2765,"url":"https://www.tcgplayer.com/product/234169/pokemon-swsh05-battle-styles-aegislash-108","modifiedOn":"2021-03-19T04:03:23.62"},{"productId":253364,"name":"Stufful","cleanName":"Stufful","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253364_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253364/pokemon-swsh08-fusion-strike-stufful","modifiedOn":"2021-11-12T05:03:11.043"}]}'
-  recorded_at: Sun, 27 Feb 2022 01:09:48 GMT
+  recorded_at: Sun, 27 Feb 2022 01:12:57 GMT
 - request:
     method: get
     uri: https://api.tcgplayer.com/catalog/products/87964,89286,42430,42393,42371,42388,42352,42355,42357,42406,42347,42425,42364,42365,42366,42367,42368,42369,42370,42372,42359,42361,42377,42378,42379,42380,42381,42383,42384,42386,42387,42374,42385,42392,42395,42396,42398,42399,42400,42401,42402,42403,42405,42390,42397,42410,42412,42413,42414,86271,42420,42421,42422,108648,42423,42424,42426,42427,42408,42411,131011,84095,89687,84479,87328,157621,157629,157638,157628,42351,157713,42363,157660,42376,42391,42416,157714,157698,157699,157738,117799,208441,208271,208484,208284,208291,208292,208296,208304,208305,208309,208311,208301,208316,208341,208344,208345,208346,208352,208356,208366,208367,208374,206051,208387,208388,208488,208401,208405,208406,208411,208423,208414,208415,208433,208434,208436,208438,208445,208447,206055,206056,208456,208461,208443,208466,208472,208479,208491,208464,208498,208502,208507,208514,226488,226368,226382,226409,226457,226449,226480,226472,226526,226565,226577,226514,84398,89092,86688,87191,85540,88158,90081,208281,208302,87944,89229,86812,86589,89498,87573,86901,84117,89103,90271,90266,85566,86308,84526,87112,88840,86358,90777,88565,90068,90069,85179,86500,88005,88762,89849,208361,89246,86484,90385,84360,89945,90585,86845,83946,86256,88155,89270,208416,84390,88990,87309,87416,226398,84291
@@ -115,7 +115,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
+      - bearer 783uupah0eNbT6AVeImB6oOQuptWUkemfZNqmTJbN2-QYTxsjnkB0SJjTmWH4pvTLfXR4MKe7astdm-hMMPUUkjflfB_-IuM-oMbnlIlwrCkQoxq4g1l4v0H1mT8KIQGEJPclH5pqB4IK9NUUitJ3s7UpuWQRPpegN-Uhb9zvIwjLkn56DQrXQGF4OBmfXyikyoT8fCKEWtGA53KDwhf26sySaClmtZDjtqrbc0Iym_2nVgW4FAFfMo6ZSgZtNTmMRr7FL6DPszqURiFBRbrWRizNQ5Dsjj9WolR9Eptvbb4qNfeXB26CnAMCESAXhOj5jGz1A
       User-Agent:
       - Unknown
       Connection:
@@ -128,7 +128,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 27 Feb 2022 01:09:48 GMT
+      - Sun, 27 Feb 2022 01:12:58 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -136,10 +136,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=ZFvVi4ETdV4nAEs0FZbA84ZT+kIa3o/Jkw7RlnRtH/sIzHeqKl9+orTFBWrTuBVv5G/OIQa8d1W+HOujoLwLHqDfkgU5THUhrXfnsFf76j1ir2TytJbyk0CzxLas;
-        Expires=Sun, 06 Mar 2022 01:09:48 GMT; Path=/
-      - AWSALBCORS=ZFvVi4ETdV4nAEs0FZbA84ZT+kIa3o/Jkw7RlnRtH/sIzHeqKl9+orTFBWrTuBVv5G/OIQa8d1W+HOujoLwLHqDfkgU5THUhrXfnsFf76j1ir2TytJbyk0CzxLas;
-        Expires=Sun, 06 Mar 2022 01:09:48 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=ziHQn4mL+qNbO0R1q+BwUEDhOU9NkRhGhnvB9ydxhu7jzxmid5b1f36qlV4/c15hlkIwHgy/PA3/5k35L0tH/eW2eMM9W+qtuxsURi6SZ0uDMoOiw13VbHP5SDLM;
+        Expires=Sun, 06 Mar 2022 01:12:58 GMT; Path=/
+      - AWSALBCORS=ziHQn4mL+qNbO0R1q+BwUEDhOU9NkRhGhnvB9ydxhu7jzxmid5b1f36qlV4/c15hlkIwHgy/PA3/5k35L0tH/eW2eMM9W+qtuxsURi6SZ0uDMoOiw13VbHP5SDLM;
+        Expires=Sun, 06 Mar 2022 01:12:58 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - no-cache
       Pragma:
@@ -228,7 +228,7 @@ http_interactions:
         Bike","cleanName":"Rotom Bike","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/208514_200w.jpg","categoryId":3,"groupId":2585,"url":"https://www.tcgplayer.com/product/208514/pokemon-swsh01-sword-and-shield-base-set-rotom-bike","modifiedOn":"2020-02-07T20:23:16.143"},{"productId":226368,"name":"Yanmega","cleanName":"Yanmega","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226368_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226368/pokemon-swsh04-vivid-voltage-yanmega","modifiedOn":"2021-06-28T21:11:20.117"},{"productId":226382,"name":"Gogoat","cleanName":"Gogoat","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226382_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226382/pokemon-swsh04-vivid-voltage-gogoat","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226398,"name":"Slugma","cleanName":"Slugma","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226398_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226398/pokemon-swsh04-vivid-voltage-slugma","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226409,"name":"Wailmer","cleanName":"Wailmer","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226409_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226409/pokemon-swsh04-vivid-voltage-wailmer","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226449,"name":"Blitzle","cleanName":"Blitzle","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226449_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226449/pokemon-swsh04-vivid-voltage-blitzle","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226457,"name":"Eelektross","cleanName":"Eelektross","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226457_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226457/pokemon-swsh04-vivid-voltage-eelektross","modifiedOn":"2021-09-20T14:54:39.52"},{"productId":226472,"name":"Banette","cleanName":"Banette","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226472_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226472/pokemon-swsh04-vivid-voltage-banette","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226480,"name":"Chimecho","cleanName":"Chimecho","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226480_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226480/pokemon-swsh04-vivid-voltage-chimecho","modifiedOn":"2021-10-28T15:01:15.83"},{"productId":226488,"name":"Milcery","cleanName":"Milcery","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226488_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226488/pokemon-swsh04-vivid-voltage-milcery","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226514,"name":"Memory
         Capsule","cleanName":"Memory Capsule","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226514_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226514/pokemon-swsh04-vivid-voltage-memory-capsule","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226526,"name":"Riolu","cleanName":"Riolu","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226526_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226526/pokemon-swsh04-vivid-voltage-riolu","modifiedOn":"2021-07-14T21:05:55.457"},{"productId":226565,"name":"Galarian
         Meowth","cleanName":"Galarian Meowth","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226565_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226565/pokemon-swsh04-vivid-voltage-galarian-meowth","modifiedOn":"2020-11-13T05:03:36.327"},{"productId":226577,"name":"Ferroseed","cleanName":"Ferroseed","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/226577_200w.jpg","categoryId":3,"groupId":2701,"url":"https://www.tcgplayer.com/product/226577/pokemon-swsh04-vivid-voltage-ferroseed","modifiedOn":"2020-11-13T05:03:36.327"}]}'
-  recorded_at: Sun, 27 Feb 2022 01:09:48 GMT
+  recorded_at: Sun, 27 Feb 2022 01:12:58 GMT
 - request:
     method: get
     uri: https://api.tcgplayer.com/catalog/products/86278,86839,86501,90566,89139,88971,84827,85984,86323,85901,88917,107122,107149,107148,107166,107167,107170,107165,107178,107196,107212,107214,107245,107247,107255,88031,83582,85000,84226,88040,84136,84209,84210,84821,85954,86524,88048,89052,89137,83838,84154,86731,88183,89636,89712,89866,88684,85752,84333,83783,87279,89399,90580,124093,213192,213231,124016,124018,124022,124027,124032,124033,124041,124042,124047,124048,124052,124056,124057,124061,124062,124067,124068,124070,124071,124079,124080,124082,124089,124096,124097,124099,124101,124115,124095,42433,45159,45128,45121,45122,45123,45124,45126,106983,106985,106986,106991,106984,45138,45139,45140,45141,45142,45143,45144,45145,106994,45137,45150,45152,45153,45154,45155,45156,45158,45148,45157,45162,45163,45164,45165,45166,45167,45161,85237,189116,189195,189222,189244,146676,146709,149023,149025,149038,149041,149075,149089,149104,149105,149118,111512,111513,111515,111525,111540,111543,111552,111555,111599,111601,111612,111624,111629,111632,111571,206421,206425,220268,232544,232349,232506,232468,232490,232467,232528,232546,232536,232545,232520,232542,234058,234064,234075,234126,234154,234165,234185,234200,234209,234212,234221,234246,234255,234186,234196,234151,234153,241824,234120,234134,241827,234115,234142,241649,241651,241652,241662,241663,241666,241674
@@ -237,7 +237,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
+      - bearer 783uupah0eNbT6AVeImB6oOQuptWUkemfZNqmTJbN2-QYTxsjnkB0SJjTmWH4pvTLfXR4MKe7astdm-hMMPUUkjflfB_-IuM-oMbnlIlwrCkQoxq4g1l4v0H1mT8KIQGEJPclH5pqB4IK9NUUitJ3s7UpuWQRPpegN-Uhb9zvIwjLkn56DQrXQGF4OBmfXyikyoT8fCKEWtGA53KDwhf26sySaClmtZDjtqrbc0Iym_2nVgW4FAFfMo6ZSgZtNTmMRr7FL6DPszqURiFBRbrWRizNQ5Dsjj9WolR9Eptvbb4qNfeXB26CnAMCESAXhOj5jGz1A
       User-Agent:
       - Unknown
       Connection:
@@ -250,7 +250,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 27 Feb 2022 01:09:49 GMT
+      - Sun, 27 Feb 2022 01:12:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -258,10 +258,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=/kwdWNZWMGF72/oWJo91BOxDzxhgqX4+5YHzxZS4vtI2GPDKDIzzj3vJTzMYu74kjYr8kuLXQLz9WSR53WawE+r8y4INudKZ1nmny4r4jhM5T2o95RDLcYIJVGR8;
-        Expires=Sun, 06 Mar 2022 01:09:49 GMT; Path=/
-      - AWSALBCORS=/kwdWNZWMGF72/oWJo91BOxDzxhgqX4+5YHzxZS4vtI2GPDKDIzzj3vJTzMYu74kjYr8kuLXQLz9WSR53WawE+r8y4INudKZ1nmny4r4jhM5T2o95RDLcYIJVGR8;
-        Expires=Sun, 06 Mar 2022 01:09:49 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=JjGzqTPNgPT/98x8RRZ6ss6gN2Dzw3o8jDi7zmoxPiwsYLNGpxqFgspZ7EE2Cj7fUBX7eZZ4Dtl6NxqV4X2a1pNC8pGoeFZ/h07BIlaz6ytK0IULMEDztmnbioqB;
+        Expires=Sun, 06 Mar 2022 01:12:58 GMT; Path=/
+      - AWSALBCORS=JjGzqTPNgPT/98x8RRZ6ss6gN2Dzw3o8jDi7zmoxPiwsYLNGpxqFgspZ7EE2Cj7fUBX7eZZ4Dtl6NxqV4X2a1pNC8pGoeFZ/h07BIlaz6ytK0IULMEDztmnbioqB;
+        Expires=Sun, 06 Mar 2022 01:12:58 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - no-cache
       Pragma:
@@ -336,7 +336,7 @@ http_interactions:
         Slowpoke","cleanName":"Galarian Slowpoke","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/234212_200w.jpg","categoryId":3,"groupId":2765,"url":"https://www.tcgplayer.com/product/234212/pokemon-swsh05-battle-styles-galarian-slowpoke","modifiedOn":"2021-03-19T04:03:23.62"},{"productId":234221,"name":"Spoink","cleanName":"Spoink","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/234221_200w.jpg","categoryId":3,"groupId":2765,"url":"https://www.tcgplayer.com/product/234221/pokemon-swsh05-battle-styles-spoink","modifiedOn":"2021-03-19T04:03:23.62"},{"productId":234246,"name":"Marowak","cleanName":"Marowak","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/234246_200w.jpg","categoryId":3,"groupId":2765,"url":"https://www.tcgplayer.com/product/234246/pokemon-swsh05-battle-styles-marowak","modifiedOn":"2021-03-19T04:03:23.62"},{"productId":234255,"name":"Carkol","cleanName":"Carkol","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/234255_200w.jpg","categoryId":3,"groupId":2765,"url":"https://www.tcgplayer.com/product/234255/pokemon-swsh05-battle-styles-carkol","modifiedOn":"2021-11-04T19:28:44.883"},{"productId":241649,"name":"Kakuna","cleanName":"Kakuna","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241649_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241649/pokemon-swsh06-chilling-reign-kakuna","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241651,"name":"Ledyba","cleanName":"Ledyba","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241651_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241651/pokemon-swsh06-chilling-reign-ledyba","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241652,"name":"Ledian","cleanName":"Ledian","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241652_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241652/pokemon-swsh06-chilling-reign-ledian","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241662,"name":"Bounsweet","cleanName":"Bounsweet","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241662_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241662/pokemon-swsh06-chilling-reign-bounsweet","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241663,"name":"Steenee","cleanName":"Steenee","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241663_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241663/pokemon-swsh06-chilling-reign-steenee","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241666,"name":"Thwackey","cleanName":"Thwackey","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241666_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241666/pokemon-swsh06-chilling-reign-thwackey","modifiedOn":"2021-11-13T17:35:42.963"},{"productId":241674,"name":"Castform
         Sunny Form","cleanName":"Castform Sunny Form","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241674_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241674/pokemon-swsh06-chilling-reign-castform-sunny-form","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241824,"name":"Doctor","cleanName":"Doctor","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241824_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241824/pokemon-swsh06-chilling-reign-doctor","modifiedOn":"2021-06-18T04:03:13.16"},{"productId":241827,"name":"Dyna
         Tree Hill","cleanName":"Dyna Tree Hill","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/241827_200w.jpg","categoryId":3,"groupId":2807,"url":"https://www.tcgplayer.com/product/241827/pokemon-swsh06-chilling-reign-dyna-tree-hill","modifiedOn":"2021-06-18T04:03:13.16"}]}'
-  recorded_at: Sun, 27 Feb 2022 01:09:49 GMT
+  recorded_at: Sun, 27 Feb 2022 01:12:59 GMT
 - request:
     method: get
     uri: https://api.tcgplayer.com/catalog/products/241676,241661,241682,241683,241687,241690,241830,241695,241697,241698,241705,241707,241715,241720,241723,241724,241726,241732,241733,241742,241743,241728,241751,241752,241760,241748,241749,241764,241777,241780,241763,241784,241786,241800,241801,241809,241811,241817,241820,241799,241835,241838,241841,241844,241847,241850,241852,241855,241861,241864,241832,241870,253129,253180,253224,253334,253373,253377,253351,253127,253093,42346,42459,44420,44425,106529,44441,44444,44453,44454,197716,201164,201323,89749,86433,85848,90586,90588,86828,88803,42358,42362,42373,42375,42389,42394,42407,42409,208300,208313,208375,208399,208407,208492,226560,226602,83533,88121,84982,88006,84831,87272,45133,106990,106993,45136,45146,45160,149034,238555,232543,234168,241664,241781,241851,44433,85107,241808,85180
@@ -345,7 +345,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - bearer igRGlHRLkXzYSufPhAjoFtN8qPv8JO7zwIXQBT03kaU27obDX1fq0ULVWdjjGFERI6eIddvtraIcblY6FylHkfojiE-b-iIZbLbY5PQ3QDi-ycqX3h9KKZR0QnYHJwqtfwiwtJPFqAlkk4QZvWlhlRnRksQweYFV3va6LQmYicSon0dMkeKbo8uwUZh128B912QXCeAMh03molgXOWmZAXw7aZ5tHII4rbDTmDpZxpTEdVonD07xeXTyGvbP3KzrIuimu7IyOhZ5eFYKbQALNG2ngOO6TQGheQGXy_vvfMYcuQqNzNOKYTmPxW3QFCoyOWgvMA
+      - bearer 783uupah0eNbT6AVeImB6oOQuptWUkemfZNqmTJbN2-QYTxsjnkB0SJjTmWH4pvTLfXR4MKe7astdm-hMMPUUkjflfB_-IuM-oMbnlIlwrCkQoxq4g1l4v0H1mT8KIQGEJPclH5pqB4IK9NUUitJ3s7UpuWQRPpegN-Uhb9zvIwjLkn56DQrXQGF4OBmfXyikyoT8fCKEWtGA53KDwhf26sySaClmtZDjtqrbc0Iym_2nVgW4FAFfMo6ZSgZtNTmMRr7FL6DPszqURiFBRbrWRizNQ5Dsjj9WolR9Eptvbb4qNfeXB26CnAMCESAXhOj5jGz1A
       User-Agent:
       - Unknown
       Connection:
@@ -358,7 +358,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 27 Feb 2022 01:09:49 GMT
+      - Sun, 27 Feb 2022 01:12:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -366,10 +366,10 @@ http_interactions:
       Connection:
       - close
       Set-Cookie:
-      - AWSALB=nrzkBU0HKPLW3edOwWjLf+y8Eo6E5g4nWmltiJxTVUarOYcNcUs9ps0cZWJdm+bioKM8BRYriT6bcibzCXsTNikJRecoSXH70Bc3NICwRjuf7tkSOkirBHV3FdgI;
-        Expires=Sun, 06 Mar 2022 01:09:49 GMT; Path=/
-      - AWSALBCORS=nrzkBU0HKPLW3edOwWjLf+y8Eo6E5g4nWmltiJxTVUarOYcNcUs9ps0cZWJdm+bioKM8BRYriT6bcibzCXsTNikJRecoSXH70Bc3NICwRjuf7tkSOkirBHV3FdgI;
-        Expires=Sun, 06 Mar 2022 01:09:49 GMT; Path=/; SameSite=None; Secure
+      - AWSALB=HMSqJRRUYAUyE0NQMfwuhEEGqS1LOiIJGpUC8x/WMCvPORoGvsCxFSZBMuUAfqM5eGcxG3ihqhHRHoqe4XoIplsLvFXNkBC6ifT+ewlnGHslEs9PEKGF37ZP/0jY;
+        Expires=Sun, 06 Mar 2022 01:12:59 GMT; Path=/
+      - AWSALBCORS=HMSqJRRUYAUyE0NQMfwuhEEGqS1LOiIJGpUC8x/WMCvPORoGvsCxFSZBMuUAfqM5eGcxG3ihqhHRHoqe4XoIplsLvFXNkBC6ifT+ewlnGHslEs9PEKGF37ZP/0jY;
+        Expires=Sun, 06 Mar 2022 01:12:59 GMT; Path=/; SameSite=None; Secure
       Cache-Control:
       - no-cache
       Pragma:
@@ -423,5 +423,5 @@ http_interactions:
         Strike Energy","cleanName":"Fusion Strike Energy","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253127_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253127/pokemon-swsh08-fusion-strike-fusion-strike-energy","modifiedOn":"2021-11-12T05:03:11.043"},{"productId":253129,"name":"Growlithe","cleanName":"Growlithe","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253129_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253129/pokemon-swsh08-fusion-strike-growlithe","modifiedOn":"2021-11-12T05:03:11.043"},{"productId":253180,"name":"Centiskorch
         (49)","cleanName":"Centiskorch 49","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253180_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253180/pokemon-swsh08-fusion-strike-centiskorch-49","modifiedOn":"2021-12-06T14:46:49.287"},{"productId":253224,"name":"Clauncher","cleanName":"Clauncher","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253224_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253224/pokemon-swsh08-fusion-strike-clauncher","modifiedOn":"2021-11-12T05:03:11.043"},{"productId":253334,"name":"Mankey","cleanName":"Mankey","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253334_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253334/pokemon-swsh08-fusion-strike-mankey","modifiedOn":"2021-11-12T05:03:11.043"},{"productId":253351,"name":"Latios","cleanName":"Latios","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253351_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253351/pokemon-swsh08-fusion-strike-latios","modifiedOn":"2021-11-12T05:03:11.043"},{"productId":253373,"name":"Galarian
         Zigzagoon","cleanName":"Galarian Zigzagoon","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253373_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253373/pokemon-swsh08-fusion-strike-galarian-zigzagoon","modifiedOn":"2021-11-12T05:03:11.043"},{"productId":253377,"name":"Sharpedo","cleanName":"Sharpedo","imageUrl":"https://tcgplayer-cdn.tcgplayer.com/product/253377_200w.jpg","categoryId":3,"groupId":2906,"url":"https://www.tcgplayer.com/product/253377/pokemon-swsh08-fusion-strike-sharpedo","modifiedOn":"2021-11-12T05:03:11.043"}]}'
-  recorded_at: Sun, 27 Feb 2022 01:09:49 GMT
+  recorded_at: Sun, 27 Feb 2022 01:12:59 GMT
 recorded_with: VCR 6.0.0
